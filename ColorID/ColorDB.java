@@ -135,23 +135,27 @@ class ColorDB {
 	///////////////////////////////////////////////////////////////////////////
 	
 	/* *************************************************************
-	 * HueToName
+	 * ColorToName
 	 *
-	 * Finds the color with the closest matching hue to the
-	 * supplied value
+	 * Convert the RGB parameters of the theColor to HSB parameters
+	 * Then finds the color with the closest matching hue to the
+	 * hue of the color
 	 *
 	 * ARGUMENTS
-	 *	hue - The hue whose name we are trying to find
+	 *	theColor - The color whose name we are trying to find
 	 *
 	 * RETURNS
 	 *	A string representing the hue's name
 	 * ************************************************************/	
 	public String ColorToName(Color theColor)
 	{
-		// TODO:  Binary search through the array (or something)
-		// for the correct hue
+		//Create an array of three floats
 		float[] HSB = new float[3];
+		
+		//Use the library function RGBtoHSB to convert from RGB parameters to HSB parameters
 		theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
+		
+		//Create string to 
 		String name = "";
 		for(int i = 0; i < size; i++)
 		{
