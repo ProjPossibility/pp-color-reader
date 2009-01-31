@@ -6,6 +6,7 @@
  * @version 1.00 2009/1/31
  */
  
+import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
