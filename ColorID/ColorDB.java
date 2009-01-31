@@ -65,7 +65,7 @@ class ColorDB {
 			
 			// Get each of the lines from the DB file and add them to
 			// the database
-			while ( (currentLine = fin.readLine())!= NULL && i < NUMBER_OF_COLORS )
+			while ( (currentLine = fin.readLine())!= null && i < NUMBER_OF_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
 				colorArray[i] = new ColorName(currentLine);
@@ -73,14 +73,18 @@ class ColorDB {
 			
 			// Update the number of colors in the database
 			size = i;
-			
-			// Close up the file
-			fin.close();
-			
     	}
     	catch (Exception e)
     	{
     		System.err.println("Error: " + e.getMessage());
+    		
+    		// Failed, no size
+    		size = 0;
+    	}
+    	finally
+    	{
+    		// Close up the file
+			fin.close();
     	}
     	
     	
