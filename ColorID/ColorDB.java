@@ -15,7 +15,10 @@ class ColorDB {
 	///////////////////////////////////////////////////////////////////////////
 	
 	private ColorName[] nameDB;
-	private static final int N_COLORS = 15;
+	private static final int MAX_N_COLORS = 15;
+	
+	// The actual number of elements in the nameDB array
+	private int size;
 	private ColorName[] colors;		//Database of colors
 			
 		
@@ -36,9 +39,40 @@ class ColorDB {
 	 * ************************************************************/
 	public ColorDB( String fileName )
 	{
+		// The file stream of the database
+		FileInputStream fin;
+    	
+    	// Attempt to open the database file.  If not, fail!!
+    	try
+    	{
+    		FileInputStream fin;
+    		fin = new FileInputStream (colors.txt);
+    	}
+    	catch (Exception e)
+    	{
+    		System.err.println("Error: " + e.getMessage());
+    	}
+    	
+    	// Loop through all of the lines of the database and 
+    	// add them to the actual database in memory
+    	
+    	// The current index in the nameDB
+    	int i = 0;
+    	
+    	// The string for the current line in the DB file
+		String currentLine;
 		
+		// Get each of the lines from the DB file and add them to
+		// the database
+		while ( (currentLine = fin.readLine())!=NULL && i < NUMBER_OF_COLORS )
+		{
+			// Create the ColorName value at the correct index in the array
+			colorArray[i] = new ColorName(currentLine);
+		}
 		
-		
+		// Update the number of colors in the database
+		size = i;
+
 	}
 	
 	
