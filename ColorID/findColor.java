@@ -112,7 +112,27 @@ public class FindColor {
     
     public void GUI()
     {
+    	if (frame == null)
+    	{
+    		frame == new JFrame();
+    		
+    		JMenuBar menuBar = new JMenuBar();
+    		 JMenu menu = new JMenu("File");
+            menuBar.add(menu);
+            JMenuItem menuItem1 = new JMenuItem(" Load...   ");
+            menuItem1.addActionListener(this);
+            menu.add(menuItem1);
+            frame.setJMenuBar(menuBar);
+            
+            frame.setContentPane(pic.getJLabel());
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setTitle("Color Identifier");
+            frame.setResizable(false);
+            frame.pack();
+            frame.setVisible(true);
+    	}
     	
+    	frame.repaint();
     }
 
     ColorName[] importDB(String DB)
@@ -129,6 +149,17 @@ public class FindColor {
     		
     	}
     	return new ColorName;
+    }
+    
+    public void actionPerformed(ActionEvent e) 
+    {
+        FileDialog chooser = new FileDialog(frame,
+                             "Use a .png or .jpg extension", FileDialog.LOAD);
+        chooser.setVisible(true);
+        if (chooser.getFile() != null) 
+        {
+            pic = Picture(chooser.getDirectory() + File.separator + chooser.getFile());
+        }
     }
 
 }
