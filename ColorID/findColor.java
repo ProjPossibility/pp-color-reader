@@ -40,6 +40,7 @@ public class findColor implements ActionListener, MouseListener
 	private String filename;		//location of the current picture
 	private String text;			//text to be displayed
 	private ColorDB db;
+	private boolean pic_changed = false;
 
     public findColor(String db_in) {
     	//Set the member variables
@@ -152,7 +153,10 @@ public class findColor implements ActionListener, MouseListener
             frame.pack();
             frame.setVisible(true);
     	}
-    	
+    	if (pic_changed)
+    	{
+    		frame.setContentPane(pic.getJLabel());
+    	}
     	frame.repaint();				//draw
     }
     
@@ -165,6 +169,7 @@ public class findColor implements ActionListener, MouseListener
         {
             pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
             System.out.println("got to new picture");
+            pic_changed = true;
             GUI();
         }
     }
