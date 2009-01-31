@@ -88,8 +88,18 @@ public class FindColor {
     
     private String colorToName(Color theColor)
     {
-    	return "";
+    	float HSB[3];
+    	String name;
+    	RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
+    	for(int i = 0; i < colors.length(); i++)
+    	{
+    		if(HSB[1] == colors[i].hue)
+    		{
+    			name = colors[i].name;
+    		}
+    	}
+    	return name;
     }
     
-    
+
 }
