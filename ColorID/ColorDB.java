@@ -155,17 +155,28 @@ class ColorDB {
 		//Use the library function RGBtoHSB to convert from RGB parameters to HSB parameters
 		theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
 		
-		//Create string to 
+		//Create string to store the name of the color
 		String name = "";
+		
+		//Loop through the array of database of colors
 		for(int i = 0; i < size; i++)
 		{
+			//Compare the hue of the color to see if it is within a .05 range from the hue of the database color.
+			//And if it is within range, then change the string to the color of the name.
 			if(HSB[0] <= nameDB[i].hue || HSB[0] >= nameDB[i].hue)
+			{
 				name = nameDB[i].name;
+				break;
+			}
 		}
+		
+		//If the hue is not within the range of any database colors, then return Color not found.
 		if(name == "")
 		{
 			return "Color not found.";
 		}
+		
+		//If a color is found, then return the name of the color.
 		return name;
 	}
 
