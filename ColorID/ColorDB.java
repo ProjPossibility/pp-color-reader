@@ -95,17 +95,17 @@ class ColorDB {
     	catch (IOException e) 
     	{
              // e.printStackTrace();
-             throw new RuntimeException("Could not open file: " + filename);
+             throw new RuntimeException("Could not open file");
     	}
-    	finally
-    	{
+    	//finally
+    	//{
     		// Close up the file if it exists.  if it does not,
     		// make sure that the size is 0
-    		if( fin != null)
-				fin.close();
-			else
-				size = 0;
-    	}
+    	//	if( fin != null)
+		//		fin.close();
+		//	else
+		//		size = 0;
+    	//}
 
 	}
 	
