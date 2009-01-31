@@ -111,14 +111,16 @@ class ColorDB {
 	 * RETURNS
 	 *	A string representing the hue's name
 	 * ************************************************************/	
-	public String HueToName( float hue )
+	public String ColorToName(Color theColor)
 	{
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
+		float HSB = new float[3];
+		theColor.RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
 		String name = "";
 		for(int i = 0; i < size; i++)
 		{
-			if(hue <= nameDB[i].hue || hue >= nameDB[i].hue)
+			if(HSB[0] <= nameDB[i].hue || HSB[0] >= nameDB[i].hue)
 				name = nameDB[i].name;
 		}
 		if(name == "")
