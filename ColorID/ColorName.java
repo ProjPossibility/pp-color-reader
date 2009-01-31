@@ -30,34 +30,38 @@ public class ColorName
     {
     	// integers for iterating through the input string
     	int c = 0;
-    	int tempC = 0;
+    	int nextC = 0;
     	
     	// Find the name
     	c = getNextNonWhitespace(dbString, c);
+    	nextC = getNextWhitespace(dbString, c);
     	name = dbString.substring(c, tempC - 1);
     	
     	// Remove any underscores from the name, convert to spaces
     	name.replace('_', ' ');
     	
     	// Increase our iterator to the current location
-    	c = tempC;
+    	c = nextC;
     	
     	// Now, find the Hue value
     	c = getNextNonWhitespace(dbString, c);
+    	nextC = getNextWhitespace(dbString, c);
     	hue = Float.parseFloat(dbString.substring(c, tempC - 1));
     	
     	// Again, increase our iterator past the hue
-    	c = tempC;
+    	c = nextC;
     	
     	// Now, find the Saturation value
     	c = getNextNonWhitespace(dbString, c);
+    	nextC = getNextWhitespace(dbString, c);
     	sat = Float.parseFloat(dbString.substring(c, tempC - 1));
     	
     	// Again, increase our iterator past the hue
-    	c = tempC;
+    	c = nextC;
     	
     	// Obtain the "Value" from the database
     	c = getNextNonWhitespace(dbString, c);
+    	nextC = getNextWhitespace(dbString, c);
     	val = Float.parseFloat(dbString.substring(c, tempC - 1));
 		
 		// Ignore everything else in the string  	
