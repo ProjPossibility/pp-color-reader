@@ -8,7 +8,7 @@
  
 import java.awt.Color;
 
-public class FindColor {
+public class findColor {
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
@@ -21,7 +21,7 @@ public class FindColor {
 	private String dbPath;			//location of the database
 	private String filename;		//location of the current picture
 
-    public FindColor(String db) {
+    public findColor(String db) {
     	//Set the member variables
 		colors = ImportDB(db);
     	/****************************************
@@ -114,7 +114,7 @@ public class FindColor {
     {
     	if (frame == null)
     	{
-    		frame == new JFrame();
+    		frame = new JFrame();
     		
     		JMenuBar menuBar = new JMenuBar();
     		 JMenu menu = new JMenu("File");
@@ -137,7 +137,7 @@ public class FindColor {
 
     ColorName[] importDB(String DB)
     {
-    	FileInputStream fin;
+    	/*FileInputStream fin;
     	
     	try
     	{
@@ -147,8 +147,9 @@ public class FindColor {
     	catch
     	{
     		
-    	}
-    	return new ColorName;
+    	}*/
+    	ColorName[] names = new ColorName[1];
+    	return names;
     }
     
     public void actionPerformed(ActionEvent e) 
