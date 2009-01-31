@@ -9,13 +9,17 @@
 import java.awt.Color;
 
 public class FindColor {
+	//GUI STUFF
+	private BufferedImage image;    // the rasterized image
+    private JFrame frame;           // on-screen view
 	
 	//Private member variables.
-	private Picture pic;
-	private int mouse_x;
-	private int mouse_y;
-	private ColorName[] colors;
-	private String dbPath;
+	private Picture pic;			//Current picture
+	private int mouse_x;			//X coordinate of most recent mouse click
+	private int mouse_y;			//Y coordinate of most recent mouse click
+	private ColorName[] colors;		//Database of colors
+	private String dbPath;			//location of the database
+	private String filename;		//location of the current picture
 
     public FindColor(String db) {
     	//Set the member variables
@@ -106,10 +110,18 @@ public class FindColor {
     	return name;
     }
     
+<<<<<<< .mine
+    
+    public void GUI()
+    {
+    	
+    }
+=======
     ColorName[] importDB(String DB)
     {
     	
     }
     
+>>>>>>> .r28
 
 }
