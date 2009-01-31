@@ -142,7 +142,7 @@ public class findColor implements ActionListener{
     		frame = new JFrame();
     		
     		JMenuBar menuBar = new JMenuBar();
-    		 JMenu menu = new JMenu("File");
+    		JMenu menu = new JMenu("File");
             menuBar.add(menu);
             JMenuItem menuItem1 = new JMenuItem(" Load...   ");
             menuItem1.addActionListener(this);
@@ -207,4 +207,20 @@ public class findColor implements ActionListener{
 		mouse_x = e.getX();
 		mouse_y = e.getY();
 	}
+	 public void mousePressed(MouseEvent e) {
+        return;
+    }
+    
+    public void mouseReleased(MouseEvent e) {
+        return;
+    }
+    
+    public void mouseEntered(MouseEvent e) {
+        return;
+    }
+    
+    public void mouseExited(MouseEvent e) {
+        return;
+    }
+   
 }
