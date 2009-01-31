@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
+import javax.swing.*;
 import java.awt.FileDialog;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -24,6 +25,7 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.net.URL;
 
 public class findColor implements ActionListener, MouseListener
@@ -142,8 +144,8 @@ public class findColor implements ActionListener, MouseListener
             menu.add(menuItem1);
             frame.setJMenuBar(menuBar);
             
-            //Container content = f.getContentPane();
-            //content.add(new JLabel(text));				//display text
+            Container content = f.getContentPane();
+            content.add(new JLabel(text));				//display text
             frame.setContentPane(pic.getJLabel());			//display image
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
