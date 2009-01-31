@@ -25,7 +25,20 @@
 	</runtimes>
 	<libraries/>
 	<files>
-		<include/>
+		<include>
+			<fileitem>
+				<path>ColorName.java</path>
+			</fileitem>
+			<fileitem>
+				<path>main.java</path>
+			</fileitem>
+			<fileitem>
+				<path>Picture.java</path>
+			</fileitem>
+			<fileitem>
+				<path>Runner.java</path>
+			</fileitem>
+		</include>
 	</files>
 	<tasks/>
 </project>
