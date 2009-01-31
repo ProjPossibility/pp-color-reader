@@ -63,6 +63,7 @@ public class ColorName
 		// Ignore everything else in the string  	
     }
     
+    
     // starting at index i, return the location of the next
     // non-whitespace character
     private int	getNextNonWhitespace(String s, int i)
