@@ -15,12 +15,11 @@ public class FindColor {
 	private int mouse_x;
 	private int mouse_y;
 	private ColorName[] colors;
+	private String dbPath;
 
-    public FindColor(Picture pic_in, int m_x, int m_y) {
+    public FindColor(String db) {
     	//Set the member variables
-    	pic = pic_in;
-    	mouse_x = m_x;
-    	mouse_y = m_y;
+		colors = ImportDB(db);
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
