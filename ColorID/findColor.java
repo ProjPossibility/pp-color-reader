@@ -95,7 +95,7 @@ public class FindColor {
     
     private String colorToName(Color theColor)
     {
-    	float HSB[3];
+    	float[] HSB = new float[3];
     	String name = "";
     	RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
     	for(int i = 0; i < colors.length(); i++)
@@ -106,7 +106,7 @@ public class FindColor {
     		}
     	}
     	if(name == "")
-    		return "Color not found."
+    		return "Color not found.";
     	return name;
     }
     
