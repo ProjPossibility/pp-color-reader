@@ -92,6 +92,11 @@ class ColorDB {
 			// Update the number of colors in the database
 			size = i;
     	}
+    	catch (IOException e) 
+    	{
+             // e.printStackTrace();
+             throw new RuntimeException("Could not open file: " + filename);
+    	}
     	finally
     	{
     		// Close up the file if it exists.  if it does not,
