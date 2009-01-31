@@ -19,7 +19,6 @@ class ColorDB {
 	
 	// The actual number of elements in the nameDB array
 	private int size;
-	private ColorName[] colors;		//Database of colors
 			
 		
 	
@@ -117,7 +116,7 @@ class ColorDB {
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
 		String name = "";
-		for(int i = 0; i < nameDB.getlength(); i++)
+		for(int i = 0; i < size; i++)
 		{
 			if(hue <= nameDB[i].hue || hue >= nameDB[i].hue)
 				name = nameDB[i].name;
