@@ -23,11 +23,11 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 
-public class findColor implements ActionListener{
+public class findColor implements ActionListener, MouseListener
+{
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
@@ -149,12 +149,12 @@ public class findColor implements ActionListener{
             menu.add(menuItem1);
             frame.setJMenuBar(menuBar);
             
-            Container content = f.getContentPane();
-            content.add(new JLabel(text));				//display text
+            //Container content = f.getContentPane();
+            //content.add(new JLabel(text));				//display text
             frame.setContentPane(pic.getJLabel());	
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setTitle("Color Identifier");
-            frame.addMouseListeber(this);
+            frame.addMouseListener(this);
             
             frame.setResizable(false);
             frame.pack();
@@ -177,10 +177,10 @@ public class findColor implements ActionListener{
     		String currentLine;
     		while ( (currentLine = fin.readLine())!=NULL && i < NUMBER_OF_COLORS )
     		{
-    			colorArray[i].hue =
+    			/*colorArray[i].hue =
     			colorArray[i].sat =
     			colorArray[i].val = 
-    			colorArray[i].name = 
+    			colorArray[i].name = */
     		}
     	}
     	catch (Exception e)

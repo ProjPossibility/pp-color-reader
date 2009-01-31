@@ -33,7 +33,7 @@ class ColorDB {
 	 * ARGUMENTS:
 	 *	filename - The name of the database file.
 	 * ************************************************************/
-	public ColorDB( string fileName )
+	public ColorDB( String fileName )
 	{
 		
 		
@@ -81,7 +81,7 @@ class ColorDB {
 	{
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
-	
+		return "";
 	}
 
 }
