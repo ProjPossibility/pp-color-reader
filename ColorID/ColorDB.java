@@ -92,18 +92,14 @@ class ColorDB {
 			// Update the number of colors in the database
 			size = i;
     	}
-    	catch (Exception e)
-    	{
-    		System.err.println("Error: " + e.getMessage());
-    		
-    		// Failed, no size
-    		size = 0;
-    	}
     	finally
     	{
-    		// Close up the file
+    		// Close up the file if it exists.  if it does not,
+    		// make sure that the size is 0
     		if( fin != null)
 				fin.close();
+			else
+				size = 0;
     	}
 
 	}
