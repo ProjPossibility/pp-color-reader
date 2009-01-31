@@ -150,8 +150,8 @@ public class findColor implements ActionListener{
             frame.setJMenuBar(menuBar);
             
             Container content = f.getContentPane();
-            content.add(new JLabel(text));
-            frame.setContentPane(pic.getJLabel());
+            content.add(new JLabel(text));				//display text
+            frame.setContentPane(pic.getJLabel());	
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setTitle("Color Identifier");
             frame.addMouseListeber(this);
