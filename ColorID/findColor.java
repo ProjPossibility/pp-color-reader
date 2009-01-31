@@ -182,6 +182,8 @@ public class findColor implements ActionListener, MouseListener
 	{
 		mouse_x = e.getX();
 		mouse_y = e.getY();
+		System.out.println("mouse x click Coordinate = " + mouse_x);
+		System.out.println("mouse y click Coordinate = " + mouse_y);
 	}
 	 public void mousePressed(MouseEvent e) {
         return;
