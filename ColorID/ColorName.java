@@ -42,7 +42,7 @@ public class ColorName
 	 *		dbString - a line from the color database
 	 *
 	 * ********************************************************************/ 
-    public ColorName(double p_hue, double p_sat, double p_val, String p_name)
+    public ColorName(float p_hue, float p_sat, float p_val, String p_name)
     {
     	
     	hue = p_hue;
@@ -66,8 +66,8 @@ public class ColorName
      * more just a struct anyway.
      * ********************************************************************/
     public float	hue;			// The HUE value in the HSV color space
-    public float	saturation;		// The SATURATION value in the HSV color space
-    public float	value;			// The VALUE value in the HSV color space
+    public float	sat;		// The SATURATION value in the HSV color space
+    public float	val;			// The VALUE value in the HSV color space
     public String	name;			// The name that corresponds to the HSV color
   
 }

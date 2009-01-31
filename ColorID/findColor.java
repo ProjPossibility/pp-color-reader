@@ -54,9 +54,34 @@ public class FindColor {
     	return;
     }
     
-    private Color averagePixel(Picture pic, int m_x, int m_y)
+    private Color averagePixel(Picture pic, int x, int y)
     {
-    	return new Color(000);
+    	int lower = y - 1;
+    	int upper = y + 1;
+    	int left = x - 1;
+    	int right = x + 1;
+    	/*Creat local RGB variables to store the	*
+    	 *values, using floats for future division	*/
+    	float green = 0, blue = 0, red = 0;
+    	
+    	/*Scan all 9 pixels around (x, y) and	*
+    	 *store their RGB values				*/
+    	for(int i = lower; i <= upper;i++)
+    	{
+    		for(int j = left; j <= right; j++)
+    		{
+    			green += (float)(pic.get(x, y).getGreen());
+    			blue += (float)(pic.get(x, y).getBlue());
+    			red += (float)(pic.get(x, y).getRed());
+    		}
+    	}
+    	
+    	/*Use the resulting RGB values to create* 
+    	 *an average color						*/
+    	Color average = new Color(red/3, green/3, blue/3);
+    	
+    	/*That is what we want*/
+   		return average;
     }
     
     private String colorToName(Color theColor)
