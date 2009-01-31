@@ -158,8 +158,7 @@ public class findColor implements ActionListener{
 
     ColorName[] importDB(String DB)
     {
-<<<<<<< .mine
-    	ColorName colorArray[NUMBER_OF_COLORS];
+    	ColorName[] colorArray = new ColorName[NUMBER_OF_COLORS];
     	FileInputStream fin;
     	
     	try
