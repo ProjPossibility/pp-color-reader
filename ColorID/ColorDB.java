@@ -16,6 +16,7 @@ class ColorDB {
 	
 	private ColorName[] nameDB;
 	private static final int N_COLORS = 15;
+	private ColorName[] colors;		//Database of colors
 			
 		
 	
@@ -76,12 +77,22 @@ class ColorDB {
 	 *
 	 * RETURNS
 	 *	A string representing the hue's name
-	 * ************************************************************/
+	 * ************************************************************/	
 	public String HueToName( float hue )
 	{
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
-		return "";
+		String name = "";
+		for(int i = 0; i < nameDB.getlength(); i++)
+		{
+			if(hue <= nameDB[i].hue || hue >= nameDB[i].hue)
+				name = nameDB[i].name;
+		}
+		if(name == "")
+		{
+			return "Color not found.";
+		}
+		return name;
 	}
 
 }
