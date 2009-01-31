@@ -69,7 +69,7 @@ public class findColor implements ActionListener, MouseListener
     	 pic_color = averagePixel(pic, mouse_x, mouse_y);
     	 
     	/*Convert the color found into the appropriate english name*/
-    	color_name = colorToName(pic_color);
+    	color_name = db.ColorToName(pic_color);
     	
     	/*Now that we have found the color we want to output alter
     	 *the GUI to display the color to the user*/
