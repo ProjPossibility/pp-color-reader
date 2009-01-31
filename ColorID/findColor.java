@@ -40,7 +40,7 @@ public class findColor {
 
     public findColor(String db) {
     	//Set the member variables
-		colors = ImportDB(db);
+		colors = importDB(db);
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
@@ -114,8 +114,8 @@ public class findColor {
     {
     	float[] HSB = new float[3];
     	String name = "";
-    	RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
-    	for(int i = 0; i < colors.length(); i++)
+    	RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
+    	for(int i = 0; i < colors.length; i++)
     	{
     		if(HSB[1] <= colors[i].hue+0.05 || HSB[i] >= colors[i].hue-0.05)
     		{
@@ -176,7 +176,7 @@ public class findColor {
         chooser.setVisible(true);
         if (chooser.getFile() != null) 
         {
-            pic = Picture(chooser.getDirectory() + File.separator + chooser.getFile());
+            pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
         }
     }
 
