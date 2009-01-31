@@ -5,7 +5,8 @@
  * @author 
  * @version 1.00 2009/1/31
  */
-
+ 
+import java.awt.Color;
 
 public class FindColor {
 	
@@ -46,6 +47,16 @@ public class FindColor {
     	 *the GUI to display the color to the user*/
     	
     	return;
+    }
+    
+    private Color averagePixel(Picture pic, int m_x, int m_y)
+    {
+    	return new Color(000);
+    }
+    
+    private String colorToName(Color theColor)
+    {
+    	return "";
     }
     
     
