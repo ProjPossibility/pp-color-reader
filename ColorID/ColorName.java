@@ -28,8 +28,67 @@ public class ColorName
 	 * ********************************************************************/ 
     public ColorName(String dbString)
     {
+    	// integers for iterating through the input string
+    	int c = 0;
+    	int tempC = 0;
     	
+    	// Find the name
+    	c = getNextNonWhitespace(dbString, c);
+    	name = dbString.substring(c, tempC - 1);
+    	
+    	// Remove any underscores from the name, convert to spaces
+    	name.replace('_', ' ');
+    	
+    	// Increase our iterator to the current location
+    	c = tempC;
+    	
+    	// Now, find the Hue value
+    	c = getNextNonWhitespace(dbString, c);
+    	hue = Float(dbString.substring(c, tempC - 1));
+    	
+    	// Again, increase our iterator past the hue
+    	c = tempC;
+    	
+    	// Now, find the Saturation value
+    	c = getNextNonWhitespace(dbString, c);
+    	sat = Float(dbString.substring(c, tempC - 1));
+    	
+    	// Again, increase our iterator past the hue
+    	c = tempC;
+    	
+    	// Obtain the "Value" from the database
+    	c = getNextNonWhitespace(dbString, c);
+    	val = Float(dbString.substring(c, tempC - 1));
+		
+		// Ignore everything else in the string  	
     }
+    
+    // starting at index i, return the location of the next
+    // non-whitespace character
+    private int	getNextNonWhitespace(String s, int i)
+    {
+    	while( s.charAt(i) == ' ' && i < s.length() )
+    	{
+    		// Continue searching until not a whitespace char
+    		i++;
+    	}
+    	
+    	return i;    	
+    }
+    
+    // Starting at index i, return the next location in string s that 
+    // is a space character
+    private int getNextWhitespace(String s, int i)
+    {
+    	while( s.charAt(i) != ' ' && i < s.length() )
+    	{
+    		// Continue searching until not a whitespace char
+    		i++;
+    	}
+    	
+    	return i;
+    }
+   
     
     
     /* ********************************************************************
@@ -66,7 +125,7 @@ public class ColorName
      * more just a struct anyway.
      * ********************************************************************/
     public float	hue;			// The HUE value in the HSV color space
-    public float	sat;		// The SATURATION value in the HSV color space
+    public float	sat;			// The SATURATION value in the HSV color space
     public float	val;			// The VALUE value in the HSV color space
     public String	name;			// The name that corresponds to the HSV color
   
