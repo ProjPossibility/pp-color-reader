@@ -44,6 +44,7 @@ public class findColor implements ActionListener, MouseListener
     public findColor(String db_in) {
     	//Set the member variables
     	//db = new ColorDB(db_in);
+    	pic = new Picture("banana_ripeningchart.jpg")
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
