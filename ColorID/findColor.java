@@ -110,18 +110,14 @@ public class FindColor {
     	return name;
     }
     
-<<<<<<< .mine
-    
     public void GUI()
     {
     	
     }
-=======
+
     ColorName[] importDB(String DB)
     {
     	
     }
-    
->>>>>>> .r28
 
 }
