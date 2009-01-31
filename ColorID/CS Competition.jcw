@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace>
+	<settings>
+		<label>CS Competition</label>
+	</settings>
+	<users>
+		<user>
+			<path>CS Competition.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>CS Competition.jcp</path>
+		</project>
+	</projects>
+</workspace>
