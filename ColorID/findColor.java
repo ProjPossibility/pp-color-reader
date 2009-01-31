@@ -154,17 +154,28 @@ public class findColor implements ActionListener{
 
     ColorName[] importDB(String DB)
     {
-    	/*FileInputStream fin;
+<<<<<<< .mine
+    	ColorName colorArray[NUMBER_OF_COLORS];
+    	FileInputStream fin;
     	
     	try
     	{
+    		FileInputStream fin;
     		fin = new FileInputStream (colors.txt);
-    		
+    		int i = 0;
+    		String currentLine;
+    		while ( (currentLine = fin.readLine())!=NULL && i < NUMBER_OF_COLORS )
+    		{
+    			colorArray[i].hue =
+    			colorArray[i].sat =
+    			colorArray[i].val = 
+    			colorArray[i].name = 
+    		}
     	}
-    	catch
+    	catch (Exception e)
     	{
-    		
-    	}*/
+    		System.err.println("Error: " + e.getMessage());
+    	}
     	ColorName[] names = new ColorName[1];
     	return names;
     }
