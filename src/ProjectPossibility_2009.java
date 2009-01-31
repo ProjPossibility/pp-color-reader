@@ -11,7 +11,7 @@ public class ProjectPossibility_2009 {
     
     public static void main(String[] args) {
     	
-    	// TODO, add your application code
-    	System.out.println("Hello World!");
+    	Picture pic = new Picture("Driver's Licence.jpg");
+        pic.show();
     }
 }
