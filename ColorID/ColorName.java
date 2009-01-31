@@ -90,7 +90,7 @@ public class ColorName
     // is a space character
     private int getNextWhitespace(String s, int i)
     {
-    	while( s.charAt(i) != ' ' && i < s.length() )
+    	while( i < s.length() && s.charAt(i) != ' ')
     	{
     		// Continue searching until not a whitespace char
     		i++;

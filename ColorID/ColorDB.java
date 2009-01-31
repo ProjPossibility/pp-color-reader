@@ -41,7 +41,7 @@ class ColorDB {
 	///////////////////////////////////////////////////////////////////////////
 	
 	private static final int MAX_N_COLORS = 15;
-	private ColorName[MAX_N_COLORS] nameDB;
+	private ColorName[] nameDB = new ColorName[MAX_N_COLORS];
 	
 	
 	// The actual number of elements in the nameDB array
@@ -87,6 +87,7 @@ class ColorDB {
 			while ( ((line = fin.readLine()) != null) && i < MAX_N_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
+				System.out.println(line);
 				nameDB[i] = new ColorName(line);
 				
 				// Increment the location in the database
