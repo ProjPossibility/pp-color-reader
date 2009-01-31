@@ -65,7 +65,7 @@ class ColorDB {
 	public ColorDB( String fileName )
 	{
 		// The file stream of the database
-		FileInputStream fin;
+		BufferedReader fin = null;
     	
     	// Attempt to open the database file.  If not, fail!!
     	try
@@ -79,14 +79,14 @@ class ColorDB {
 	    	int i = 0;
 	    	
 	    	// The string for the current line in the DB file
-			String currentLine;
+			String line;
 			
 			// Get each of the lines from the DB file and add them to
 			// the database
-			while ( (currentLine = fin.readLine())!= null && i < MAX_N_COLORS )
+			while ( ((line = fin.readLine()) != null) && i < MAX_N_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
-				nameDB[i] = new ColorName(currentLine);
+				nameDB[i] = new ColorName(line);
 			}
 			
 			// Update the number of colors in the database
@@ -102,25 +102,9 @@ class ColorDB {
     	finally
     	{
     		// Close up the file
-			fin.close();
+    		if( fin != null)
+				fin.close();
     	}
-    	
-    	// The current index in the nameDB
-    	int i = 0;
-    	
-    	// The string for the current line in the DB file
-		String currentLine;
-		
-		// Get each of the lines from the DB file and add them to
-		// the database
-		while ( (currentLine = fin.readLine())!= null && i < NUMBER_OF_COLORS )
-		{
-			// Create the ColorName value at the correct index in the array
-			colorArray[i] = new ColorName(currentLine);
-		}
-		
-		// Update the number of colors in the database
-		size = i;
 
 	}
 	
