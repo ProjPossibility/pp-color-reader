@@ -17,10 +17,13 @@ public class Runner
     
     public static void main(String[] args) 
     {
-        Picture pic = new Picture("banana_ripeningchart.jpg");
+        /*Picture pic = new Picture("banana_ripeningchart.jpg");
         pic.show();
         Color x = pic.get(4,5);
-        System.out.println(x);
+        System.out.println(x);*/
+        
+        FindColor test = new FindColor("TEST");
+        test.GUI();
     }
     
     
