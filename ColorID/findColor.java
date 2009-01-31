@@ -56,13 +56,13 @@ public class FindColor {
     private Color averagePixel(Picture pic, int x, int y)
     {
     	int lower = y + 1;
-    	if (lower < pic.height()) lower = 0;
+    	if (lower >= pic.height()) lower = pic.height()-1;
     	int upper = y - 1;
     	if (upper < 0) upper = 0;
     	int left = x - 1;
     	if (left < 0) left = 0;
     	int right = x + 1;
-    	if (right < pic.width())
+    	if (right < pic.width()) right = pic.width()-1;
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	float green = 0, blue = 0, red = 0;
@@ -104,6 +104,11 @@ public class FindColor {
     	if(name == "")
     		return "Color not found."
     	return name;
+    }
+    
+    ColorName[] importDB(String DB)
+    {
+    	
     }
     
 
