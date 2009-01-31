@@ -77,8 +77,12 @@ public class findColor implements ActionListener, MouseListener
     	return;
     }
     
+    /*take (x,y) location in pic and return the average color 	 *
+     *by refering the pixels around it						     */
     private Color averagePixel(Picture pic, int x, int y)
     {
+    	/*Set the lower and upper limint for reference
+    	 */
     	int lower = y + 1;
     	if (lower >= pic.height()) lower = pic.height()-1;
     	int upper = y - 1;
@@ -87,12 +91,13 @@ public class findColor implements ActionListener, MouseListener
     	if (left < 0) left = 0;
     	int right = x + 1;
     	if (right < pic.width()) right = pic.width()-1;
+    	
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	float green = 0, blue = 0, red = 0;
     	
-    	/*Scan all pixels around (x, y) and	*
-    	 *store their RGB values				*/
+    	/*Scan all pixels around (x, y) and store		*
+    	 *their RGB values, changing to floats			*/
     	for(int yCounter = lower; yCounter <= upper; yCounter++)
     	{
     		for(int xCounter = left; xCounter <= right; xCounter++)
@@ -118,12 +123,15 @@ public class findColor implements ActionListener, MouseListener
     	text = ss;
     }
     
+    /*display the graphic user interface
+     */
     public void GUI()
     {
-    	if (frame == null)
+    	if (frame == null)			//If frame has not been initialized yet
     	{
     		frame = new JFrame();
     		
+    		//Set menu bar
     		JMenuBar menuBar = new JMenuBar();
     		JMenu menu = new JMenu("File");
             menuBar.add(menu);
@@ -134,9 +142,9 @@ public class findColor implements ActionListener, MouseListener
             
             //Container content = f.getContentPane();
             //content.add(new JLabel(text));				//display text
-            frame.setContentPane(pic.getJLabel());	
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setTitle("Color Identifier");
+            frame.setContentPane(pic.getJLabel());			//display image
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
+            frame.setTitle("Color Identifier");				//title
             frame.addMouseListener(this);
             
             frame.setResizable(false);
@@ -144,7 +152,7 @@ public class findColor implements ActionListener, MouseListener
             frame.setVisible(true);
     	}
     	
-    	frame.repaint();
+    	frame.repaint();				//draw
     }
     
     public void actionPerformed(ActionEvent e) 
@@ -158,6 +166,7 @@ public class findColor implements ActionListener, MouseListener
         }
     }
 
+	//mouse detection
 	public void mouseClicked(MouseEvent e)
 	{
 		mouse_x = e.getX();
