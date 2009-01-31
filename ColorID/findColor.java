@@ -17,6 +17,8 @@ import javax.swing.KeyStroke;
 import java.awt.FileDialog;
 import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -144,6 +146,8 @@ public class findColor implements ActionListener{
             frame.setContentPane(pic.getJLabel());
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setTitle("Color Identifier");
+            frame.addMouseListeber(this);
+            
             frame.setResizable(false);
             frame.pack();
             frame.setVisible(true);
@@ -191,4 +195,9 @@ public class findColor implements ActionListener{
         }
     }
 
+	public void mouseClicked(MouseEvent e)
+	{
+		mouse_x = e.getX();
+		mouse_y = e.getY();
+	}
 }
