@@ -106,8 +106,6 @@ class ColorDB {
 			fin.close();
     	}
     	
-    	
-<<<<<<< .mine
     	// The current index in the nameDB
     	int i = 0;
     	
@@ -124,8 +122,6 @@ class ColorDB {
 		
 		// Update the number of colors in the database
 		size = i;
-=======
->>>>>>> .r68
 
 	}
 	
@@ -170,7 +166,7 @@ class ColorDB {
 	{
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
-		float HSB = new float[3];
+		float[] HSB = new float[3];
 		theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
 		String name = "";
 		for(int i = 0; i < size; i++)
