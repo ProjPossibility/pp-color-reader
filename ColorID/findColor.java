@@ -117,7 +117,18 @@ public class FindColor {
 
     ColorName[] importDB(String DB)
     {
+    	FileInputStream fin;
     	
+    	try
+    	{
+    		fin = new FileInputStream (colors.txt);
+    		
+    	}
+    	catch
+    	{
+    		
+    	}
+    	return new ColorName;
     }
 
 }
