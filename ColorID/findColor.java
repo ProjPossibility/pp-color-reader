@@ -23,7 +23,6 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.io.*;
 import java.net.URL;
 
 public class findColor implements ActionListener, MouseListener
@@ -113,23 +112,6 @@ public class findColor implements ActionListener, MouseListener
    		return average;
     }
     
-    private String colorToName(Color theColor)
-    {
-    	float[] HSB = new float[3];
-    	String name = "";
-    	theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
-    	for(int i = 0; i < colors.length; i++)
-    	{
-    		if(HSB[1] <= colors[i].hue+0.05 || HSB[i] >= colors[i].hue-0.05)
-    		{
-    			name = colors[i].name;
-    		}
-    	}
-    	if(name == "")
-    		return "Color not found.";
-    	return name;
-    }
-    
     //set the text to be displayed
     public void setText(String ss){
     	text = ss;
@@ -162,33 +144,6 @@ public class findColor implements ActionListener, MouseListener
     	}
     	
     	frame.repaint();
-    }
-
-    ColorName[] importDB(String DB)
-    {
-    	ColorName[] colorArray = new ColorName[NUMBER_OF_COLORS];
-    	FileInputStream fin;
-    	
-    	try
-    	{
-    		FileInputStream fin;
-    		fin = new FileInputStream (colors.txt);
-    		int i = 0;
-    		String currentLine;
-    		while ( (currentLine = fin.readLine())!=NULL && i < NUMBER_OF_COLORS )
-    		{
-    			/*colorArray[i].hue =
-    			colorArray[i].sat =
-    			colorArray[i].val = 
-    			colorArray[i].name = */
-    		}
-    	}
-    	catch (Exception e)
-    	{
-    		System.err.println("Error: " + e.getMessage());
-    	}
-    	ColorName[] names = new ColorName[1];
-    	return names;
     }
     
     public void actionPerformed(ActionEvent e) 
