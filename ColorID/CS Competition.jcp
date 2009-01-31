@@ -19,7 +19,7 @@
 			<applet_ref/>
 			<debugger_ref/>
 			<param/>
-			<run/>
+			<run>Runner</run>
 			<verify>true</verify>
 		</runtime>
 	</runtimes>
@@ -27,10 +27,7 @@
 	<files>
 		<include>
 			<fileitem>
-				<path>ColorName.java</path>
-			</fileitem>
-			<fileitem>
-				<path>main.java</path>
+				<path>findColor.java</path>
 			</fileitem>
 			<fileitem>
 				<path>Picture.java</path>

@@ -1,3 +1,4 @@
-"E:\\UCLA\\CS Competition\\ColorID\\FindColor.java"
-"E:\\UCLA\\CS Competition\\ColorID\\Picture.java"
-"E:\\UCLA\\CS Competition\\ColorID\\Runner.java"
+C:\Users\Masaki\Desktop\colorIdentifier\ColorID\ColorName.java
+C:\Users\Masaki\Desktop\colorIdentifier\ColorID\findColor.java
+C:\Users\Masaki\Desktop\colorIdentifier\ColorID\Picture.java
+C:\Users\Masaki\Desktop\colorIdentifier\ColorID\Runner.java
