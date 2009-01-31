@@ -1,4 +1,11 @@
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+
 /* ******************************************************************************
  * ColorDB
  *
@@ -46,31 +53,37 @@ class ColorDB {
     	try
     	{
     		fin = new FileInputStream ("colors.txt");
+    		
+    		// Loop through all of the lines of the database and 
+	    	// add them to the actual database in memory
+	    	
+	    	// The current index in the nameDB
+	    	int i = 0;
+	    	
+	    	// The string for the current line in the DB file
+			String currentLine;
+			
+			// Get each of the lines from the DB file and add them to
+			// the database
+			while ( (currentLine = fin.readLine())!= NULL && i < NUMBER_OF_COLORS )
+			{
+				// Create the ColorName value at the correct index in the array
+				colorArray[i] = new ColorName(currentLine);
+			}
+			
+			// Update the number of colors in the database
+			size = i;
+			
+			// Close up the file
+			fin.close();
+			
     	}
     	catch (Exception e)
     	{
     		System.err.println("Error: " + e.getMessage());
     	}
     	
-    	// Loop through all of the lines of the database and 
-    	// add them to the actual database in memory
     	
-    	// The current index in the nameDB
-    	int i = 0;
-    	
-    	// The string for the current line in the DB file
-		String currentLine;
-		
-		// Get each of the lines from the DB file and add them to
-		// the database
-		while ( (currentLine = fin.readLine())!=NULL && i < NUMBER_OF_COLORS )
-		{
-			// Create the ColorName value at the correct index in the array
-			colorArray[i] = new ColorName(currentLine);
-		}
-		
-		// Update the number of colors in the database
-		size = i;
 
 	}
 	
