@@ -15,6 +15,25 @@ import java.io.IOException;
  *
  * *****************************************************************************/
 import java.io.*;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+import javax.swing.KeyStroke;
+import java.awt.FileDialog;
+import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.net.URL;
 class ColorDB {
 	
 	
@@ -88,6 +107,25 @@ class ColorDB {
     	}
     	
     	
+<<<<<<< .mine
+    	// The current index in the nameDB
+    	int i = 0;
+    	
+    	// The string for the current line in the DB file
+		String currentLine;
+		
+		// Get each of the lines from the DB file and add them to
+		// the database
+		while ( (currentLine = fin.readLine())!= null && i < NUMBER_OF_COLORS )
+		{
+			// Create the ColorName value at the correct index in the array
+			colorArray[i] = new ColorName(currentLine);
+		}
+		
+		// Update the number of colors in the database
+		size = i;
+=======
+>>>>>>> .r68
 
 	}
 	
@@ -133,7 +171,7 @@ class ColorDB {
 		// TODO:  Binary search through the array (or something)
 		// for the correct hue
 		float HSB = new float[3];
-		theColor.RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
+		theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
 		String name = "";
 		for(int i = 0; i < size; i++)
 		{
