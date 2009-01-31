@@ -36,7 +36,6 @@ public class findColor implements ActionListener, MouseListener
 	private Picture pic;			//Current picture
 	private int mouse_x;			//X coordinate of most recent mouse click
 	private int mouse_y;			//Y coordinate of most recent mouse click
-	private ColorName[] colors;		//Database of colors
 	private String dbPath;			//location of the database
 	private String filename;		//location of the current picture
 	private String text;			//text to be displayed
