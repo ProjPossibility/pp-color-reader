@@ -70,7 +70,7 @@ class ColorDB {
     	// Attempt to open the database file.  If not, fail!!
     	try
     	{
-    		fin = new BufferedReader(new FileReader("colors.txt"));
+    		fin = new BufferedReader(new FileReader(fileName));
     		
     		// Loop through all of the lines of the database and 
 	    	// add them to the actual database in memory
