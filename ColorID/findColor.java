@@ -39,6 +39,7 @@ public class findColor implements ActionListener{
 	private ColorName[] colors;		//Database of colors
 	private String dbPath;			//location of the database
 	private String filename;		//location of the current picture
+	private String text;			//text to be displayed
 
     public findColor(String db) {
     	//Set the member variables
@@ -90,7 +91,7 @@ public class findColor implements ActionListener{
     	 *values, using floats for future division	*/
     	float green = 0, blue = 0, red = 0;
     	
-    	/*Scan all 9 pixels around (x, y) and	*
+    	/*Scan all pixels around (x, y) and	*
     	 *store their RGB values				*/
     	for(int yCounter = lower; yCounter <= upper; yCounter++)
     	{
@@ -129,6 +130,11 @@ public class findColor implements ActionListener{
     	return name;
     }
     
+    //set the text to be displayed
+    public void setText(String ss){
+    	text = ss;
+    }
+    
     public void GUI()
     {
     	if (frame == null)
@@ -143,6 +149,8 @@ public class findColor implements ActionListener{
             menu.add(menuItem1);
             frame.setJMenuBar(menuBar);
             
+            Container content = f.getContentPane();
+            content.add(new JLabel(text));
             frame.setContentPane(pic.getJLabel());
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setTitle("Color Identifier");
