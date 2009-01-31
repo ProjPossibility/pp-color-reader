@@ -35,7 +35,7 @@ public class AveragePixels
     	
     	/*Use the resulting RGB values to create* 
     	 *an average color						*/
-    	Color average(red/3, green/3, blue/3);
+    	Color average(red/9, green/9, blue/9);
     	
     	/*That is what we want*/
    		return average;
