@@ -100,7 +100,7 @@ public class FindColor {
     	RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
     	for(int i = 0; i < colors.length(); i++)
     	{
-    		if(HSB[1] <= colors[i].hue+0.1 || HSB[i] >= colors[i].hue-0.1)
+    		if(HSB[1] <= colors[i].hue+0.05 || HSB[i] >= colors[i].hue-0.05)
     		{
     			name = colors[i].name;
     		}
