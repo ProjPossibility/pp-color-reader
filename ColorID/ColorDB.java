@@ -65,7 +65,7 @@ class ColorDB {
 			
 			// Get each of the lines from the DB file and add them to
 			// the database
-			while ( (currentLine = fin.readLine())!= null && i < NUMBER_OF_COLORS )
+			while ( (currentLine = fin.readLine())!= null && i < MAX_N_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
 				colorArray[i] = new ColorName(currentLine);
