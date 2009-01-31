@@ -7,14 +7,14 @@
  */
 
 
-public class findColor {
+public class FindColor {
 	
 	//Private member variables.
 	private Picture pic;
 	private int mouse_x;
 	private int mouse_y;
 
-    public findColor() {
+    public FindColor() {
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
