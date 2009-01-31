@@ -40,8 +40,9 @@ class ColorDB {
 	//                         MEMBER VARIABLES                              //
 	///////////////////////////////////////////////////////////////////////////
 	
-	private ColorName[] nameDB;
 	private static final int MAX_N_COLORS = 15;
+	private ColorName[MAX_N_COLORS] nameDB;
+	
 	
 	// The actual number of elements in the nameDB array
 	private int size;
@@ -87,6 +88,9 @@ class ColorDB {
 			{
 				// Create the ColorName value at the correct index in the array
 				nameDB[i] = new ColorName(line);
+				
+				// Increment the location in the database
+				i++;
 			}
 			
 			// Update the number of colors in the database
