@@ -102,7 +102,7 @@ public class FindColor {
     		}
     	}
     	if(name == "")
-    		return "Color is either white or black."
+    		return "Color not found."
     	return name;
     }
     
