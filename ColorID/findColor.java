@@ -78,7 +78,9 @@ public class FindColor {
     	
     	/*Use the resulting RGB values to create* 
     	 *an average color						*/
-    	Color average = new Color(red/3, green/3, blue/3);
+    	Color average = new Color(red/((right-left)*(upper-lower)),
+    								 green/((right-left)*(upper-lower)),
+    								 blue/((right-left)*(upper-lower)));
     	
     	/*That is what we want*/
    		return average;
