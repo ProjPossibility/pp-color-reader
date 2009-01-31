@@ -40,10 +40,11 @@ public class findColor implements ActionListener, MouseListener
 	private String dbPath;			//location of the database
 	private String filename;		//location of the current picture
 	private String text;			//text to be displayed
+	private ColorDB db;
 
-    public findColor(String db) {
+    public findColor(String db_in) {
     	//Set the member variables
-		colors = importDB(db);
+    	db = new ColorDB(db_in);
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
