@@ -14,8 +14,13 @@ public class FindColor {
 	private Picture pic;
 	private int mouse_x;
 	private int mouse_y;
+	
 
-    public FindColor() {
+    public FindColor(Picture pic_in, int m_x, int m_y) {
+    	//Set the member variables
+    	pic = pic_in;
+    	mouse_x = m_x;
+    	mouse_y = m_y;
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
@@ -49,10 +54,14 @@ public class FindColor {
     	return;
     }
     
+<<<<<<< .mine
+      
+=======
     private Color averagePixel(Picture pic, int m_x, int m_y)
     {
     	return new Color(000);
     }
+>>>>>>> .r16
     
     private String colorToName(Color theColor)
     {
