@@ -7,6 +7,7 @@
  *
  *
  * *****************************************************************************/
+import java.io.*;
 class ColorDB {
 	
 	
@@ -44,8 +45,7 @@ class ColorDB {
     	// Attempt to open the database file.  If not, fail!!
     	try
     	{
-    		FileInputStream fin;
-    		fin = new FileInputStream (colors.txt);
+    		fin = new FileInputStream ("colors.txt");
     	}
     	catch (Exception e)
     	{
