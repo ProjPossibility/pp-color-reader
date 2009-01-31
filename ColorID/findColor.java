@@ -88,15 +88,17 @@ public class FindColor {
     private String colorToName(Color theColor)
     {
     	float HSB[3];
-    	String name;
+    	String name = "";
     	RGBtoHSB(theColor.getRed, theColor.getGreen, theColor.getBlue, HSB);
     	for(int i = 0; i < colors.length(); i++)
     	{
-    		if(HSB[1] == colors[i].hue)
+    		if(HSB[1] <= colors[i].hue+0.1 || HSB[i] >= colors[i].hue-0.1)
     		{
     			name = colors[i].name;
     		}
     	}
+    	if(name == "")
+    		return "Color is either white or black."
     	return name;
     }
     
