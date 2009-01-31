@@ -156,6 +156,9 @@ public class findColor implements ActionListener, MouseListener
     	if (pic_changed)
     	{
     		frame.setContentPane(pic.getJLabel());
+    		frame.setResizable(false);
+            frame.pack();
+            frame.setVisible(true);
     	}
     	frame.repaint();				//draw
     }
