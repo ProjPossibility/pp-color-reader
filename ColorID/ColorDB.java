@@ -71,7 +71,7 @@ class ColorDB {
     	// Attempt to open the database file.  If not, fail!!
     	try
     	{
-    		fin = new FileInputStream ("colors.txt");
+    		fin = new BufferedReader(new FileReader("colors.txt"));
     		
     		// Loop through all of the lines of the database and 
 	    	// add them to the actual database in memory
@@ -87,7 +87,7 @@ class ColorDB {
 			while ( (currentLine = fin.readLine())!= null && i < MAX_N_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
-				colorArray[i] = new ColorName(currentLine);
+				nameDB[i] = new ColorName(currentLine);
 			}
 			
 			// Update the number of colors in the database
