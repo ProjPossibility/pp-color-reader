@@ -25,7 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class findColor {
+public class findColor implements ActionListener{
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
