@@ -44,21 +44,21 @@ public class ColorName
     	
     	// Now, find the Hue value
     	c = getNextNonWhitespace(dbString, c);
-    	hue = Float(dbString.substring(c, tempC - 1));
+    	hue = valueOf(dbString.substring(c, tempC - 1));
     	
     	// Again, increase our iterator past the hue
     	c = tempC;
     	
     	// Now, find the Saturation value
     	c = getNextNonWhitespace(dbString, c);
-    	sat = Float(dbString.substring(c, tempC - 1));
+    	sat = valueOf(dbString.substring(c, tempC - 1));
     	
     	// Again, increase our iterator past the hue
     	c = tempC;
     	
     	// Obtain the "Value" from the database
     	c = getNextNonWhitespace(dbString, c);
-    	val = Float(dbString.substring(c, tempC - 1));
+    	val = valueOf(dbString.substring(c, tempC - 1));
 		
 		// Ignore everything else in the string  	
     }
