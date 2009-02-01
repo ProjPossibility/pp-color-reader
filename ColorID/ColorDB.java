@@ -106,9 +106,9 @@ class ColorDB {
 			
 			// Debug output to make sure that the colors sorted
 			System.out.println("Sorted DB:" );
-			for( int i = 0; i < size; i++ )
+			for( int counter = 0; counter < size; counter++ )
 			{
-				System.out.println("   " + nameDB.name + ", Hue: " + nameDb.hue + ", Sat: " + nameDB.sat );
+				System.out.println("   " + nameDB[counter].name + ", Hue: " + nameDB[counter].hue + ", Sat: " + nameDB[counter].sat );
 			}
 			
     	}
