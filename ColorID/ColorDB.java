@@ -180,8 +180,10 @@ class ColorDB {
 		//While there are more than one elements left, keep searching
 		while (min != max)
 		{
-			//Choose the 
+			//Choose the middle of the array to check which side to check for the cloest value
 			mid = (max + min)/2;
+			
+			//Special case 
 			if(mid == 0){
 				lower = 0;
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
@@ -204,7 +206,10 @@ class ColorDB {
 			}
 			
 			if( min == max )
+			{
 				index = min;
+			}
+			
 		}
 		
 		if(nameDB[index].sat > HSB[1]){
