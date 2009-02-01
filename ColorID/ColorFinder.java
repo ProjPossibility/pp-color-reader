@@ -67,6 +67,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	 *the GUI to display the color to the user*/
     	 
     	colorText.setText(color_name);
+    	GUI();
     	
     	return;
     }
