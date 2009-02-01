@@ -20,6 +20,12 @@ public class findColor implements ActionListener, MouseListener
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
+    JPanel jpMenu;
+    JPanel jpTop;
+    JPanel jpBot;
+    JPanel jpMaster;
+    JTextArea colorText;
+    JScrollPane ctDisplay;
 	
 	//Private member variables.
 	private Picture pic;			//Current picture
@@ -138,29 +144,26 @@ public class findColor implements ActionListener, MouseListener
     /*display the graphic user interface
      */
     public void GUI()
-    {
-    	JPanel jpMenu = new JPanel();
-    	JPanel jpTop = new JPanel();
-    	JPanel jpBot = new JPanel();
-    	JPanel jpMaster = new JPanel();
-    	JTextArea colorText = new JTextArea();
-    	JScrollPane ctDisplay = new JScrollPane();
-    		
+    {  		
     	if (frame == null)			//If frame has not been initialized yet
     	{
     		frame = new JFrame();	//Create a new Jframe
+    		//Instantiate Panels
     		jpMenu = new JPanel();
     		jpTop = new JPanel();
     		jpBot = new JPanel();
     		jpMaster = new JPanel();
     		
+    		//Instantiate Text box
     		colorText = new JTextArea();
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText(text);
     		colorText.setEditable(false);
+    		
+    		//Add text to bottom
     		jpBot.add(ctDisplay);
     		
-    		//Set menu bar
+    		//Configure menuBar
     		JMenuBar menuBar = new JMenuBar();		//Add the top menu
     		JMenu menu = new JMenu("File");			//Create a new menu item
             menuBar.add(menu);						//add that menu item to the menu
@@ -173,45 +176,62 @@ public class findColor implements ActionListener, MouseListener
             //content.add(pic.getJLabel());			//display image
             //content.add(new JLabel(text));				//display text\
             //jpTop.add(menuBar);
+            
+            //Set top panel to the picture and add a mouselistener
             jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
+            
+            //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
             jpMaster.add(jpMenu);
             jpMaster.add(jpTop);
             jpMaster.add(jpBot);
+            
+            //add master panel to the frame
             frame.add(jpMaster);
+            
+            
             //frame.setContentPane(pic.getJLabel());
                         
             //frame.setLayeredPane(new JLabel(text));
             //frame.setGlassPane(textbox);
+            
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
+            
             //frame.addMouseListener(this);				
             
+            //Set frame constants
             frame.setResizable(false);
             frame.pack();
             frame.setVisible(true);
     	}
     	if (pic_changed)
     	{
+    		//Instantiate Panels
     		jpTop = new JPanel();
     		jpBot = new JPanel();
     		jpMaster = new JPanel();
     		
+    		//Instantiate Text box
     		colorText = new JTextArea();
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText("");
     		colorText.setEditable(false);
     		jpBot.add(ctDisplay);
     		
+    		//Set top panel to the picture and add a mouselistener
     		jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
+            
+            //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
             jpMaster.add(jpMenu);
             jpMaster.add(jpTop);
             jpMaster.add(jpBot);
             frame.add(jpMaster);
             
+            //Set frame constants
     		frame.setResizable(false);
             frame.pack();
             frame.setVisible(true);
