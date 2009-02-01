@@ -22,7 +22,7 @@ public class Runner
         Color x = pic.get(4,5);
         System.out.println(x);*/
         
-        findColor test = new findColor("colors.txt");
+        ColorFinder test = new ColorFinder("colors.txt");
         test.GUI();
     }
     
