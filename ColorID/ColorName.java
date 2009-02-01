@@ -141,7 +141,7 @@ public class ColorName
 
 
 
-class ColorNameCompare implements Comparator 
+class interface ColorNameCompare implements Comparator 
 {
 	
 	/* ********************************************************************
