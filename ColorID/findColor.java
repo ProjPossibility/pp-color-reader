@@ -57,7 +57,9 @@ public class findColor implements ActionListener, MouseListener
     	
     	/*Call average pixel on pic and the x,y coordinates to find
     	 *the average color around the passed pixel*/
-    	 pic_color = averagePixel(pic, mouse_x, mouse_y);
+    	 pic_color = averagePixel(pic, pic.width()/2-150, pic.height()/2);
+    	 //pic_color = averagePixel(pic, mouse_x, mouse_y);
+    	 
     	 
     	/*Convert the color found into the appropriate english name*/
     	color_name = db.ColorToName(pic_color);
