@@ -7,13 +7,17 @@ import java.io.IOException;
 
 
 /* ******************************************************************************
- * ColorDB
- *
- * Stores the database of colors from the file.  This can be searched by
- * hue 
- *
- *
- * *****************************************************************************/
+ * ColorDB Version 1.0															*
+ *																				*
+ * Stores the database of colors from the file.									*
+ *																				*
+ * Also use for converting a color's RGB values to HSB values					*
+ * Then using the HSB values and comparing to the database						*
+ * Find the name of a color that have the closest values to 					*
+ * the color in question.														*
+ *																				*
+ *																				*
+ * ******************************************************************************/
 import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -44,6 +48,7 @@ class ColorDB {
 	//                         MEMBER VARIABLES                              //
 	///////////////////////////////////////////////////////////////////////////
 	
+	//An array use to hold the database of colors
 	private static final int MAX_N_COLORS = 100;
 	private ColorName[] nameDB = new ColorName[MAX_N_COLORS];
 	
@@ -58,15 +63,15 @@ class ColorDB {
 	///////////////////////////////////////////////////////////////////////////
 	
 	
-	/* *************************************************************
-	 * CONSTRUCTOR
-	 *
-	 * Sorts the database by hue values, making it faster to search
-	 * for the name of a specific hue.
-	 *
-	 * ARGUMENTS:
-	 *	filename - The name of the database file.
-	 * ************************************************************/
+	/* **************************************************************
+	 * CONSTRUCTOR                                                  *
+	 *                                                              *
+	 * Sorts the database by hue values, making it faster to search *
+	 * for the name of a specific hue.                              *
+	 *                                                              *
+	 * ARGUMENTS:                                                   *
+	 *	filename - The name of the database file.					*
+	 * **************************************************************/
 	public ColorDB( String fileName )
 	{
 		// The file stream of the database
@@ -142,19 +147,19 @@ class ColorDB {
 	//                            ACCESSORS                                  //
 	///////////////////////////////////////////////////////////////////////////
 	
-	/* *************************************************************
-	 * ColorToName
-	 *
-	 * Convert the RGB parameters of the theColor to HSB parameters
-	 * Then finds the color with the closest matching hue to the
-	 * hue of the color
-	 *
-	 * ARGUMENTS
-	 *	theColor - The color whose name we are trying to find
-	 *
-	 * RETURNS
-	 *	A string representing the hue's name
-	 * ************************************************************/	
+	/* *****************************************************************
+	 * ColorToName                                                     *
+	 *                                                                 *
+	 * Convert the RGB parameters of the theColor to HSB parameters    *
+	 * Then calls the searchHue function along with the compareSatL    *
+	 * and the compareSatR functions to find the name of the color     *
+	 *                                                                 *
+	 * ARGUMENTS                                                       *
+	 *	theColor - The color whose name we are trying to find          *
+	 *                                                                 *
+	 * RETURNS                                                         *
+	 *	A string representing the hue's name                           *
+	 * *****************************************************************/	
 	public String ColorToName(Color theColor)
 	{
 		//Create an array of three floats
@@ -173,7 +178,7 @@ class ColorDB {
 		System.out.println("Testing saturation: " + HSB[1]);
 		System.out.println("Testing BRIGHTNESS: " + HSB[2]);
 		
-		//If the saturation or brightness are too low and hard to 
+		//If the saturation or brightness are too low and make it difficult to find the color
 		if(HSB[1] < 0.1 || HSB[2] < 0.1)
 		{
 			return "Brightness or saturation too low.";
@@ -207,15 +212,31 @@ class ColorDB {
 		return name;
 	}
 
-	// Find hue index in the data base using binary search.
+	/************************************************************************
+ 	* searchHue																*
+ 	*																		*
+ 	* Using binary search to find the index in the array of a color with 	*
+ 	* the cloest hue to the unkown color									*
+ 	*																		*
+ 	* ARGUMENTS																*
+ 	*  HSB - the HSB values of the unknown color							*
+ 	*																		*
+ 	* RETURNS																*
+ 	*  index - the index with the closest hue								*
+ 	*																		*
+ 	*************************************************************************/
 	private int searchHue(float[] HSB)
 	{
+		//Set intial index and range of array
 		int index = 0;
 		int min = 0;
 		int max = size;
+		
+		//Create variables for future use
 		int mid;
 		float lower;
 		float upper;
+		
 		//While there are more than one elements left, keep searching
 		while (min != max)
 		{
@@ -260,11 +281,26 @@ class ColorDB {
 				index = min;
 			}
 		}
+		
+		//Returns the index of the color that have the closest hue to the hue of the color in question
 		return index;
 	}
-	
-	//Check if the indicies to the left of the indicated index have the same hue
-	//If any do, check which one have the cloest hue to the hue of the color
+
+	/****************************************************************************************
+	 * compareSatL																			*
+	 *																						*
+	 * Check if the indicies to the left of the indicated index have the same hue			*
+	 * If any do, check which one have the cloest hue to the hue of the color				*
+	 *																						*
+	 * ARGUMENTS																			*
+	 *  index - the index with the closest hue to the value s								*
+	 *  s - the saturation of the unknown function											*
+	 *																						*
+	 * RETURNS																				*
+	 *  a string of the name of a color that have the closeset								*
+	 * hue and saturation to the unknown color												*
+	 *																						*
+	 ****************************************************************************************/
 	private String compareSatL(int index, float s)
 	{
 		//While the indicated index is not the first index and the index to the left of the indicated index have the same hue
@@ -284,8 +320,21 @@ class ColorDB {
 		return nameDB[index].name;
 	}
 	
-	//Check if the indicies to the right of the indicated index have the same hue
-	//If any do, check which one have the cloest hue to the hue of the color
+	/****************************************************************************************
+	 * compareSatR																			*
+	 *																						*
+	 * Check if the indicies to the right of the indicated index have the same hue			*
+	 * If any do, check which one have the cloest saturation to the saturation of the color *
+	 *																						*
+	 * ARGUMENTS																			*
+	 *  index - the index with the closest hue to the value s								*
+	 *  s - the saturation of the unknown function											*
+ 	 *																						*
+	 * RETURNS																				*
+	 *  a string of the name of a color that have the closeset								*
+	 * hue and saturation to the unknown color												*
+	 *																						*
+	 ****************************************************************************************/
 	private String compareSatR(int index, float s)
 	{
 		//While the indicated index is not the last index and the index to the right of the indicated index have the same hue
