@@ -162,6 +162,9 @@ class ColorDB {
 		//Create string to store the name of the color
 		String name = "";
 		
+		// Debug output
+		System.out.println("Testing hue: " + String(HSB[0]));
+		
 		//Loop through the array of database of colors
 		for(int i = 0; i < size; i++)
 		{
