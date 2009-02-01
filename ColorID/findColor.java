@@ -74,6 +74,7 @@ public class findColor implements ActionListener, MouseListener
      *by refering the pixels around it						     */
     private Color averagePixel(Picture pic, int x, int y)
     {
+    	System.out.println ("averagePixel is called ");
     	/*Set the lower and upper limint for reference
     	 */
     	int lower = y - 1;
@@ -96,8 +97,11 @@ public class findColor implements ActionListener, MouseListener
     		for(int xCounter = left; xCounter <= right; xCounter++)
     		{
     			green += (float)(pic.get(x, y).getGreen());
+    			System.out.println("number " + yCounter + xCounter + " green : " + green);
     			blue += (float)(pic.get(x, y).getBlue());
+    			System.out.println("number " + yCounter + xCounter + " blue : " + blue);
     			red += (float)(pic.get(x, y).getRed());
+    			System.out.println("number " + yCounter + xCounter + " red : " + red);
     		}
     	}
     	
