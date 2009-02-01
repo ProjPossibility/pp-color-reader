@@ -33,6 +33,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.net.URL;
+
+import java.util.Arrays; // For array sort
+
+
 class ColorDB {
 	
 	
@@ -98,7 +102,7 @@ class ColorDB {
 			
 			// Make sure that the array of names is sorted
 			// do this using the basic java array sort
-			Arrays.sort(nameDB, 0, size-1, ColorName.compare );
+			Arrays.sort(nameDB, 0, size, ColorName.compare );
 			
     	}
     	catch (IOException e) 
