@@ -238,7 +238,8 @@ class ColorDB {
 			//Choose the middle of the array to check which side to check for the cloest value
 			mid = (max + min)/2;
 			
-			//Special case, if the middle is
+			//Special case, if the middle is on the end of the array, then set the upper or lower hue range to 1 or 0
+			//Else just compute the range using the midpoint between two color hues.
 			if(mid == 0){
 				lower = 0;
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
@@ -250,7 +251,7 @@ class ColorDB {
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
 			}
 			
-			if(lower < HSB[0] && HSB[0] < upper)
+			if(lower <= HSB[0] && HSB[0] <= upper)
 			{
 				index = mid;
 				break;
