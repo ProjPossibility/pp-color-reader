@@ -187,10 +187,28 @@ public class findColor implements ActionListener, MouseListener
     	}
     	if (pic_changed)
     	{
-    		frame.setContentPane(pic.getJLabel());
+    		jpTop = new JPanel();
+    		jpBot = new JPanel();
+    		jpMaster = new JPanel();
+    		
+    		colorText = new JTextArea();
+    		ctDisplay = new JScrollPane(colorText);
+    		colorText.setText("");
+    		text.setEditable(false);
+    		jpBot.add(ctDisplay);
+    		
+    		jpTop.add(pic.getJLabel());
+            jpTop.addMouseListener(this);
+            jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
+            jpMaster.add(jpMenu);
+            jpMaster.add(jpTop);
+            jpMaster.add(jpBot);
+            frame.add(jpMaster);
+            
     		frame.setResizable(false);
             frame.pack();
             frame.setVisible(true);
+            
     	}
     	frame.repaint();				//draw
     }
