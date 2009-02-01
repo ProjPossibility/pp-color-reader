@@ -1,6 +1,10 @@
-Hue			Name
-0 to 0.096		This is a red Apple
-0.097 to 0.193		This is a golden Apple
-0.194 to 0.416		This is a green Apple
-0.147 to 0.916		Sorry this is not a Apple
-0.917 to 1		This is a red Apple
+This_is_a_red_apple			0.0	1 1
+This_is_a_red_apple			0.096	1 1
+This_is_a_golden_apple			0.097	1 1
+This_is_a_golden_apple			0.193	1 1
+This_is_a_green_apple			0.194	1 1
+This_is_a_green_apple			0.416	1 1
+Sorry,_this_does_not_look_like_an_apple 0.417 1 1
+Sorry,_this_does_not_look_like_an_apple 0.916 1 1
+This_is_a_red_apple			0.917	1 1
+This_is_a_red_apple			1.000	1 1
