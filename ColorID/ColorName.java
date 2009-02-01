@@ -73,7 +73,7 @@ public class ColorName
     // non-whitespace character
     private int	getNextNonWhitespace(String s, int i)
     {
-    	while( (s.charAt(i) == ' ' || s.charAt(i) == '\t') && i < s.length() )
+    	while( i < s.length() && (s.charAt(i) == ' ' || s.charAt(i) == '\t') )
     	{
     		// Continue searching until not a whitespace char
     		i++;
@@ -130,28 +130,42 @@ public class ColorName
 	 * Compare
 	 *
 	 * Compares two color names.  This is used for sorting color names
-	 * by hue.
+	 * by hue followed by saturation
 	 *
 	 * PARAMETERS:
 	 *		o1 - The first color name
 	 *		o2 - The second color name
 	 *
 	 * RETURNS:
-	 *		1 if the hue of o1 is greater than that of o2
-	 *		-1 if the hue of o1 is less than that of o2
-	 *		0 if the hue of o1 is equal to that of o2
+	 *		1 if o1 should come after o2
+	 *		-1 if o1 should come before o2
+	 *		0 if they are equivilent
 	 *
 	 * ********************************************************************/
    
     public int compare( ColorName o1, ColorName o2 )
     {
     	
+    	// First try to sort by the hue values
     	if( o1.hue > o2.hue )
     		return 1;
-    	if( o1.hue < o2.hue )
+    		
+    	else if( o1.hue < o2.hue )
     		return -1;
-    	if( o1.hue == o2.hue )
-    		return 0;    	
+    		
+    	else
+    	{
+    		// If they have the same hues, sort them by
+    		// saturation values
+    		if( o1.sat > o2.sat )
+    			return 1;
+    			
+    		if( o1.sat < o2.sat )
+    			return -1;
+    			
+    		else
+    			return 0;
+    	}  	
     }
     
     
