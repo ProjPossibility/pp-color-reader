@@ -203,6 +203,31 @@ class ColorDB {
 			}
 		}*/
 		
+		// Find hue index in the data base using binary search.
+		int index;
+		int min = 0;
+		int max = size;
+		int mid;
+		while (1)
+		{
+			mid = (max + min)/2;
+			if (nameDB[mid].hue == HSB[0])
+			{
+				index = mid;
+				break;
+			}
+			else if (nameDB[mid].hue < HSB[0])
+			{
+				min = mid;
+				continue;
+			}
+			else
+			{
+				max = mid;
+				continue;
+			}
+		}
+		
 		//If the hue is not within the range of any database colors, then return Color not found.
 		if(name == "")
 		{
