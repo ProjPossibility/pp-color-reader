@@ -102,7 +102,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	/*Set the lower and upper limint for reference
     	 */
 
-    	int range = 0;
+    	int range = 4;
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	int green = 0, blue = 0, red = 0;
