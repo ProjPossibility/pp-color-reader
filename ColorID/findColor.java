@@ -158,24 +158,25 @@ public class findColor implements ActionListener, MouseListener
             JMenuItem menuItem1 = new JMenuItem(" Load...   ");	//Create sub category to the File tab
             menuItem1.addActionListener(this);		//Add a listener to the menu for when the load button is clicked
             menu.add(menuItem1);					//add Load sub category to the menu
-            //frame.setJMenuBar(menuBar);				//Add menu bar to the frame
+            frame.setJMenuBar(menuBar);				//Add menu bar to the frame
             
             Container content = new Container();
             content.add(pic.getJLabel());			//display image
             //content.add(new JLabel(text));				//display text\
-            jpTop.add(menuBar);
-            jpTop.add(content);
-            jpTop.addMouseListener(this);
-            jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
-            jpMaster.add(jpTop);
+            //jpTop.add(menuBar);
+            //jpTop.add(content);
+            //jpTop.addMouseListener(this);
+            //jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
+            //jpMaster.add(jpTop);
             jpMaster.add(jpBot);
-            frame.add(jpMaster);
+            //frame.add(jpMaster);
+            frame.setContentPane(content);
                         
             //frame.setLayeredPane(new JLabel(text));
             //frame.setGlassPane(textbox);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
-            //frame.addMouseListener(this);				
+            frame.addMouseListener(this);				
             
             frame.setResizable(false);
             frame.pack();
