@@ -104,6 +104,13 @@ class ColorDB {
 			// do this using the basic java array sort
 			Arrays.sort(nameDB, 0, size, new ColorNameCompare() );
 			
+			// Debug output to make sure that the colors sorted
+			System.out.println("Sorted DB:" );
+			for( int i = 0; i < size; i++ )
+			{
+				System.out.println("   " + nameDB.name + ", Hue: " + nameDb.hue + ", Sat: " + nameDB.sat );
+			}
+			
     	}
     	catch (IOException e) 
     	{
