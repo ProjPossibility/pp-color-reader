@@ -117,47 +117,14 @@ class ColorDB {
              // e.printStackTrace();
              throw new RuntimeException("Could not open file");
     	}
-    	//finally
-    	//{
-    		// Close up the file if it exists.  if it does not,
-    		// make sure that the size is 0
-    	//	if( fin != null)
-		//		fin.close();
-		//	else
-		//		size = 0;
-    	//}
-
-	}
-	
-	
-	
-	
-	///////////////////////////////////////////////////////////////////////////
-	//                           MUTATORS                                    //
-	///////////////////////////////////////////////////////////////////////////
-	
-	/* *************************************************************
-	 * SortByHue
-	 *
-	 * Sorts the database by hue values, making it faster to search
-	 * for the name of a specific hue.  Uses the hue comparitor
-	 * of colorname
-	 *
-	 * PARAMETERS
-	 *		
-	 * ************************************************************/
-	public void SortByHue( int min, int max, int pivot )
-	{
-		
-		// Utilizing a comparison function of ColorName, let's
-		// use the basic java sorting algorithm
-		
-	
-	}
-	
-	
-	
-	
+    	
+		// Close up the file if it exists.  if it does not,
+		// make sure that the size is 0
+		if( fin != null)
+			fin.close();
+		else
+			size = 0;
+	}	
 	
 	
 	

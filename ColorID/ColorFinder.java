@@ -109,12 +109,6 @@ public class ColorFinder implements ActionListener, MouseListener
     				blue += (float)(pic.get(xCounter, yCounter).getBlue());
     				red += (float)(pic.get(xCounter, yCounter).getRed());
     				total ++;
-    				
-    				System.out.println ("xCounter : " + xCounter + "yCounter : " + yCounter);
-    				System.out.println ("green: " + green);
-    				System.out.println ("blue: " + blue);
-    				System.out.println ("red: " + red);
-    				System.out.println ("total: " + total);
     			}
     		}
     	}
