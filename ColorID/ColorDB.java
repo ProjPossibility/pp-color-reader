@@ -163,6 +163,8 @@ class ColorDB {
 		
 		// Debug output
 		System.out.println("Testing hue: " + HSB[0]);
+		System.out.println("Testing saturation: " + HSB[1]);
+		System.out.println("Testing BRIGHTNESS: " + HSB[2]);
 		
 		//If the saturation or brightness are too low and hard to 
 		if(HSB[1] < 0.25 || HSB[2] < 0.25)
