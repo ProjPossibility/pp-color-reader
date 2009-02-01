@@ -47,7 +47,6 @@ public class ColorName
     	// Now, find the Hue value
     	c = getNextNonWhitespace(dbString, c);
     	nextC = getNextWhitespace(dbString, c);
-    	System.out.println(dbString.substring(c, nextC));
     	hue = Float.parseFloat(dbString.substring(c, nextC));
     	
     	// Again, increase our iterator past the hue
@@ -56,7 +55,6 @@ public class ColorName
     	// Now, find the Saturation value
     	c = getNextNonWhitespace(dbString, c);
     	nextC = getNextWhitespace(dbString, c);
-    	System.out.println(dbString.substring(c, nextC));
     	sat = Float.parseFloat(dbString.substring(c, nextC));
     	
     	// Again, increase our iterator past the hue
@@ -65,7 +63,6 @@ public class ColorName
     	// Obtain the "Value" from the database
     	c = getNextNonWhitespace(dbString, c);
     	nextC = getNextWhitespace(dbString, c);
-    	System.out.println(dbString.substring(c, nextC));
     	val = Float.parseFloat(dbString.substring(c, nextC));
 		
 		// Ignore everything else in the string  	
