@@ -229,7 +229,7 @@ class ColorDB {
 		int min = 0;
 		int max = size;
 		int mid;
-		while (1)
+		while (true)
 		{
 			mid = (max + min)/2;
 			if (nameDB[mid].hue <= HSB[0] && HSB[0] <= nameDB[mid+1].hue)
