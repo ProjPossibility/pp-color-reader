@@ -172,11 +172,16 @@ class ColorDB {
 			return "Brightness or saturation too low.";
 		}
 		
+		//Find the index on the array of color with the cloest hue to the color
 		int index = searchHue(HSB);
 		
 		System.out.println(index);
 		System.out.println(HSB[1]);
 		
+		//Using the index with the cloest hue, check its saturation against the saturation of the color
+		//If the index have a higher saturation, use the function compareSatL to find the name
+		//If the index have a lower saturation, use the function compareSatR to find the name
+		//If the index have the same satauration, name of the color is the name of the index.
 		if(nameDB[index].sat > HSB[1])
 			name = compareSatL(index, HSB[1]);	
 		else if(nameDB[index].sat < HSB[1])
@@ -238,8 +243,11 @@ class ColorDB {
 			//Choose the middle of the array to check which side to check for the cloest value
 			mid = (max + min)/2;
 			
-			//Special case, if the middle is on the end of the array, then set the upper or lower hue range to 1 or 0
-			//Else just compute the range using the midpoint between two color hues.
+			//Special cases:
+			//If middle is the first index, then set the lower hue range limit to 0 and compute the upper range limit
+			//If middle is the last index, then set the upper hue range limit to 1 and compute the lower limit
+			//Else just compute the lower limit by finding the midpoint between the hue of the middle and the hue of the index before middle,
+			//and compute the upper limit by finding the midpoint between the hue of the middle and the hue of the index after middle.
 			if(mid == 0){
 				lower = 0;
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
@@ -251,6 +259,11 @@ class ColorDB {
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
 			}
 			
+			//Check if the hue of the color is within the range of the hue of the middle index.
+			//If it is, then set index to middle and break out of the loop
+			//If it is not, check the hue of the color against the hue of the middle index
+			//If the hue of the color is lower, then cut the array into the first half by setting max to middle
+			//If the hue of the color is higher, then cut the array into the second half by setting min to middle
 			if(lower <= HSB[0] && HSB[0] <= upper)
 			{
 				index = mid;
@@ -261,6 +274,8 @@ class ColorDB {
 				min = mid;
 			}
 			
+			//Check if the min and max are at the same place in the array indicating that is the last element left
+			//If they are then change index to that place
 			if( min == max )
 			{
 				index = min;
@@ -269,30 +284,44 @@ class ColorDB {
 		return index;
 	}
 	
+	//Check if the indicies to the left of the indicated index have the same hue
+	//If any do, check which one have the cloest hue to the hue of the color
 	private String compareSatL(int index, float s)
 	{
-		System.out.println("Index is : " + index);
+		//While the indicated index is not the first index and the index to the left of the indicated index have the same hue
 		while(index != 0 && nameDB[index].hue == nameDB[index-1].hue)
 		{
+			//If the saturation of the indicated index is closer to the saturation of the color than the saturation of the index to the left of the indicated index
+			//then the name of the color is the name of the indicated index.
+			//Else move the index one to the left and repeat the loop.
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index-1].sat)){
 				return nameDB[index].name;
 			}else{
 				index--;
 			}
 		}
+		
+		//If the indicated index is the first index, the name of the color is the color name in the indicated index
 		return nameDB[index].name;
 	}
 	
+	//Check if the indicies to the right of the indicated index have the same hue
+	//If any do, check which one have the cloest hue to the hue of the color
 	private String compareSatR(int index, float s)
 	{
+		//While the indicated index is not the last index and the index to the right of the indicated index have the same hue
 		while(index != size-1 && nameDB[index].hue == nameDB[index+1].hue)
 		{
+			//If the saturation of the indicated index is closer to the saturation of the color than the saturation of the index to the right of the indicated index
+			//then the name of the color is the name of the indicated index.
+			//Else move the index one to the right and repeat the loop.
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index+1].sat)){
 				return nameDB[index].name;
 			}else{
 				index++;
 			}
 		}
+		//If the indicated index is the last index, the name of the color is the color name in the indicated index
 		return nameDB[index].name;
 	}
 }
