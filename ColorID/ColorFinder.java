@@ -118,7 +118,12 @@ public class ColorFinder implements ActionListener, MouseListener
     			// Test to make sure that we are still in bounds
     			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
     			{
-    				// The pixel that we are checking is within bounds.  We should    				// add its values to our running sum and assume a greater total    				green += (float)(pic.get(xCounter, yCounter).getGreen());    				blue += (float)(pic.get(xCounter, yCounter).getBlue());    				red += (float)(pic.get(xCounter, yCounter).getRed());    				total ++;
+    				// The pixel that we are checking is within bounds.  We should
+    				// add its values to our running sum and assume a greater total
+    				green += (float)(pic.get(xCounter, yCounter).getGreen());
+    				blue += (float)(pic.get(xCounter, yCounter).getBlue());
+    				red += (float)(pic.get(xCounter, yCounter).getRed());
+    				total ++;
     			}
     		}
     	}
@@ -136,7 +141,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	{
     		// Since we didn't have any pixels to average, we should
     		// just return black and an error message
-    		System.out.println("WARNING:  Clicked on an area outside of the area, returning black");
+    		System.out.println("WARNING:  Clicked on an area outside of the picture, returning black");
     		average = new Color(0, 0, 0);
     	}
     	
