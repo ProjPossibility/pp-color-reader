@@ -34,7 +34,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.net.URL;
 
-import java.util.Array; // For array sort
+import java.util.Arrays; // For array sort
 
 
 class ColorDB {
@@ -102,7 +102,7 @@ class ColorDB {
 			
 			// Make sure that the array of names is sorted
 			// do this using the basic java array sort
-			Array.sort(nameDB, 0, size, new ColorNameCompare() );
+			Arrays.sort(nameDB, 0, size, new ColorNameCompare() );
 			
     	}
     	catch (IOException e) 
