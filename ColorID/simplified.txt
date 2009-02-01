@@ -15,10 +15,10 @@ Green		0.258	  1	1
 Green		0.269	  1	1
 Lime		0.308	  1	1
 Lime		0.344	  1	1
-Turquoise	0.422	  1	1
-Baby_blue       0.483 0.714 0.878
-Teal            0.500     1 0.502
-Azure           0.500 0.059     1
+Spring_Green	0.422	  1	1
+Blue      	0.483 0.714 0.878
+Dark_Blue       0.500     1 0.502
+Baby_Blue	0.500 0.059     1
 Aqua		0.519	  1	1
 Light_Blue      0.541 0.248 0.902
 Dodger_Blue	0.591	  1	1
