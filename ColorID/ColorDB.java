@@ -232,19 +232,26 @@ class ColorDB {
 		while (1)
 		{
 			mid = (max + min)/2;
-			if (nameDB[mid].hue == HSB[0])
+			if (nameDB[mid].hue <= HSB[0] && HSB[0] <= nameDB[mid+1].hue)
 			{
-				index = mid;
+				if (HSB[0]-nameDB[mid].hue <= nameDB[mid+1].hue-HSB[0])
+				{
+					index = mid;
+				}
+				else
+				{
+					index = mid+1;
+				}
 				break;
 			}
-			else if (nameDB[mid].hue < HSB[0])
-			{
-				min = mid;
-				continue;
-			}
-			else
+			else if (HSB[0] < nameDB[mid].hue)
 			{
 				max = mid;
+				continue;
+			}
+			else if (nameDB[mid+1].hue < HSB[0])
+			{
+				min = mid;
 				continue;
 			}
 		}
