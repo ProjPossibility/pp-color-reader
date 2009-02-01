@@ -200,34 +200,6 @@ class ColorDB {
 		return name;
 	}
 
-/*	private int searchHue(float[] HSB, float lower, float upper, int min, int max) 
-	{
-		
-		if (max < min)
-           return -1; // not found
-		int mid = min + (max - min) / 2;  // Note: not (low + high) / 2 !!
-		
-		if(mid == 0)
-		{
-			lower = 0;
-			upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
-		}else if(mid == size-1){
-			lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid-1].hue)/2;
-			upper = 1;
-		}else{
-			lower = nameDB[mid].hue-(nameDB[mid-1].hue-nameDB[mid-1].hue)/2;
-			upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
-		}
-		
-		if (nameDB[mid].hue > upper)
-           return searchHue(HSB, lower, upper, min, mid-1);
-		else if (nameDB[mid].hue < lower)
-			return searchHue(HSB, lower, upper, mid+1, max);
-		else
-			return mid; // found
-   }*/
-
-
 	// Find hue index in the data base using binary search.
 	private int searchHue(float[] HSB)
 	{
