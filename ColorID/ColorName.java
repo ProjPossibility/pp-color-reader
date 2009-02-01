@@ -2,8 +2,12 @@
  * @(#)ColorName.java
  *
  *
- * @author 
+ * @Color Reader - Team Number 1 
  * @version 1.00 2009/1/31
+ *
+ * This class is used to hold the hue, saturation, brightness,
+ * and the color name associated with those values. Will be
+ * used to stored the values from our databases
  */
 
 
@@ -11,7 +15,21 @@ import java.util.Comparator; // For comparitor
 
 public class ColorName  
 {
-	
+	///////////////////////////////////////////////////////////////////////
+	//                       Member Variables                            //
+	///////////////////////////////////////////////////////////////////////
+    
+    /* ********************************************************************
+     * Structure variables.
+     * I'm leaving these as public because there is no need for the
+     * processing overhead of using accessors and the like.  This is
+     * more just a struct anyway.
+     * ********************************************************************/
+    public float	hue;			// The HUE value in the HSV color space
+    public float	sat;			// The SATURATION value in the HSV color space
+    public float	val;			// The VALUE value in the HSV color space
+    public String	name;			// The name that corresponds to the HSV color
+  
 
 	///////////////////////////////////////////////////////////////////////
 	//                         Constructors                              //
@@ -118,29 +136,13 @@ public class ColorName
     	val = p_val;
     	name = p_name;    	
     }
-
-    
-    
-    ///////////////////////////////////////////////////////////////////////
-	//                       Member Variables                            //
-	///////////////////////////////////////////////////////////////////////
-    
-    /* ********************************************************************
-     * Structure variables.
-     * I'm leaving these as public because there is no need for the
-     * processing overhead of using accessors and the like.  This is
-     * more just a struct anyway.
-     * ********************************************************************/
-    public float	hue;			// The HUE value in the HSV color space
-    public float	sat;			// The SATURATION value in the HSV color space
-    public float	val;			// The VALUE value in the HSV color space
-    public String	name;			// The name that corresponds to the HSV color
-  
 }
 
 
 
-
+/*Comparitor class utilized to create a distinct order of color names
+ *used when we are sorting database files into a sorted database by hue
+ *then saturation*/
 class ColorNameCompare implements Comparator<ColorName>
 {
 	

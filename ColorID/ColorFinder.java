@@ -1,9 +1,14 @@
 /**
- * @(#)main.java
+ * @(#)ColorFinder.java
  *
  *
- * @author 
+ * @Color Reader - Team Number 1 
  * @version 1.00 2009/1/31
+ *
+ * This class is contains the main functionality for our program
+ * it contains the GUI information and utilizes all the associated
+ * classes. Main function is to allow user to click on a loaded picture
+ * and it will return the color of the area where they clicked
  */
  
 import java.io.File;
@@ -13,7 +18,6 @@ import java.awt.image.BufferedImage;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
-//import java.awt.TextComponent;
 
 public class ColorFinder implements ActionListener, MouseListener
 {
@@ -45,6 +49,14 @@ public class ColorFinder implements ActionListener, MouseListener
 	
 	private ColorRead ttsAgent;		// The object that reads the color name
 
+	/*******************************************************************
+	 *Default Constructor                                              *
+	 *Sets the database to the simplified database imports the default *
+	 *picture, should have it have no picture but we were unable to    *
+	 *figure that out, also sets the default text and text to speech   *
+	 *voice.                                                           *
+	 *******************************************************************/
+
     public ColorFinder() {
     	//Set the member variables
     	db = new ColorDB(SIMPLIFIED_DB);
@@ -56,17 +68,23 @@ public class ColorFinder implements ActionListener, MouseListener
     	
     }
     
-    /*Change the database.			
-     *it take a string and swith the data base     */
+    /*************************************************************
+     *ChangeDB                                                   *			
+     *it take a string and switch the data base by creating a new*
+     *database and setting the db member to that newly created DB*
+     *************************************************************/
      public void changeDB(String dbnew)
      {
      	System.out.println("Changing the Database");
      	db = new ColorDB(dbnew);
      }
      
-    /* Uses the private members pic and the mouseclick coordinates *
+    /***************************************************************
+     * getColor													   *
+     * Uses the private members pic and the mouseclick coordinates *
      * Based on results of functions called alters the GUI to      *
-     * display the color at the coordinates						   */
+     * display the color at the coordinates						   *
+     ***************************************************************/
     private void getColor()
     {
     	//Local variables
@@ -95,8 +113,11 @@ public class ColorFinder implements ActionListener, MouseListener
     	return;
     }
     
-    /*take (x,y) location in pic and return the average color 	 *
-     *by refering the pixels around it						     */
+    /*************************************************************
+     *averagePixel												 *
+     *Take (x,y) location in pic and return the average color 	 *
+     *By refering the pixels around it						     *
+     *************************************************************/
     private Color averagePixel(Picture pic, int x, int y)
     {
     	System.out.println ("averagePixel is called ");
@@ -155,8 +176,11 @@ public class ColorFinder implements ActionListener, MouseListener
     	text = ss;
     }
     
-    /*display the graphic user interface
-     */
+    /**************************************************************************
+     * GUI                                                                    *
+     * This is the function that handles all the gui interface, it creates the*
+     * panels, menus, and pictures.                                           *
+     **************************************************************************/
     public void GUI()
     {  		
     	if (frame == null)			//If frame has not been initialized yet
@@ -283,8 +307,11 @@ public class ColorFinder implements ActionListener, MouseListener
     	frame.repaint();				//draw
     }
     
-    //Action event handler that takes an action event that has occurred on the
-    //Menu of the program, does action based on which item was clicked
+    /**********************************************************************
+    *actionPerformed													  *
+    *Action event handler that takes an action event that has occurred on *
+    *the Menu of the program, does action based on which item was clicked *
+    ***********************************************************************/
     public void actionPerformed(ActionEvent e) 
     {
     	//If the Load item was clicked in the File menu
@@ -350,17 +377,25 @@ public class ColorFinder implements ActionListener, MouseListener
         
     }
 
-	//mouse detection
+	/**************************************************************
+	 *mouseClicked                                                *
+	 *Mouse action event handler, for when the mouse is clicked.  *
+	 *If the mouse is clicked set the mouse_x and mouse_y member  *
+	 *variables to the location clicked. The minus five is used to*
+	 *offset the boundaries of the panel.                         *
+	 **************************************************************/
 	public void mouseClicked(MouseEvent e)
 	{
 		mouse_x = e.getX()-5;	//picture is shifted left 5 pixels with gui
 		mouse_y = e.getY()-5;	//picture is shifted up 5 pixels with gui
-		System.out.println("mouse x click Coordinate = " + mouse_x);
-		System.out.println("mouse y click Coordinate = " + mouse_y);
 		
 		// Update to the current color
 		getColor();
 	}
+	
+	//These are empty mouse event handlers, since we do not need these actions
+	//to be handled, but we need to override them since we use the mouse listners and
+	//actions.
 	 public void mousePressed(MouseEvent e) {
         return;
     }
