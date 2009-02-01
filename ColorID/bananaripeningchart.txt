@@ -1,0 +1,8 @@
+H	S	B	Stage					Description
+0.356	1	1	Green and Hard				Just freshly picked
+0.277	1	1	Green with trace of yellow		Maturing but not ready to eat
+0.240	1	1	More yellow than green			Starting ripening
+0.208	0.84	1	Yellow with Green hint			Getting ready for eating
+0.189	0.86	1	All yellow with green tip on crown	Sweet creamy, and firm, ready to eat!
+0.167	0.88	1	All yellow				At the peak of freshness, and delicous to eat
+0.131	1	1	Yellow with brown "sugar spots"		Softened and at the peak of its sugar content
