@@ -166,7 +166,7 @@ public class findColor implements ActionListener, MouseListener
             
             Container content = frame.getContentPane();
             content.add(pic.getJLabel());			//display image
-            content.add(new JLabel(text));				//display text
+            //content.add(new JLabel(text));				//display text
             frame.setContentPane(content);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
