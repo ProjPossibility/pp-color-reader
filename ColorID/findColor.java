@@ -40,7 +40,7 @@ public class findColor implements ActionListener, MouseListener
     public findColor(String db_in) {
     	//Set the member variables
     	db = new ColorDB(db_in);
-    	text = "ajf;ljfea";
+    	text = "";
     	pic = new Picture("banana_ripeningchart.jpg"); //Default picture, TODO: Should change to handle no picture
     	/****************************************
     	 * Initialize GUI						*
@@ -74,6 +74,8 @@ public class findColor implements ActionListener, MouseListener
     	setText(color_name);
     	/*Now that we have found the color we want to output alter
     	 *the GUI to display the color to the user*/
+    	 
+    	colorText.setText(color_name);
     	
     	return;
     }
@@ -159,6 +161,7 @@ public class findColor implements ActionListener, MouseListener
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText(text);
     		colorText.setEditable(false);
+    		colorText.setFont(new Font("Times New Roman",0,16));
     		
     		//Add text to bottom
     		jpBot.add(ctDisplay);
