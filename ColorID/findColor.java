@@ -161,7 +161,7 @@ public class findColor implements ActionListener, MouseListener
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText(text);
     		colorText.setEditable(false);
-    		colorText.setFont(new Font("Times New Roman",0,16));
+    		colorText.setFont(new Font("Times New Roman",1,16));
     		
     		//Add text to bottom
     		jpBot.add(ctDisplay);
@@ -222,7 +222,7 @@ public class findColor implements ActionListener, MouseListener
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText("");
     		colorText.setEditable(false);
-    		colorText.setFont(new Font("Times New Roman",0,16));
+    		colorText.setFont(new Font("Times New Roman",1,16));
     		
     		//Add text to the bottom panel
     		jpBot.add(ctDisplay);
