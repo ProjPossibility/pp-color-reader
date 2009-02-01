@@ -90,11 +90,18 @@ class ColorDB {
 			// the database
 			while ( ((line = fin.readLine()) != null) && i < MAX_N_COLORS )
 			{
-				// Create the ColorName value at the correct index in the array
-				nameDB[i] = new ColorName(line);
-				
-				// Increment the location in the database
-				i++;
+				// Make sure that the line is good by checking the first
+				// character.
+				// If the first character is a # or a newline, the line
+				// is completely ignored
+				if( line.getChar(0) != '#' && line.getChar(0) != '\n' )
+				{
+					// Create the ColorName value at the correct index in the array
+					nameDB[i] = new ColorName(line);
+					
+					// Increment the location in the database
+					i++;
+				}
 			}
 			
 			// Update the number of colors in the database
