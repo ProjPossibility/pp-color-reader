@@ -44,7 +44,7 @@ class ColorDB {
 	//                         MEMBER VARIABLES                              //
 	///////////////////////////////////////////////////////////////////////////
 	
-	private static final int MAX_N_COLORS = 15;
+	private static final int MAX_N_COLORS = 100;
 	private ColorName[] nameDB = new ColorName[MAX_N_COLORS];
 	
 	
@@ -175,8 +175,10 @@ class ColorDB {
 		int mid;
 		float lower;
 		float upper;
+		//While there are more than one elements left, keep searching
 		while (min != max)
 		{
+			//Choose the 
 			mid = (max + min)/2;
 			if(mid == 0){
 				lower = 0;
@@ -198,28 +200,6 @@ class ColorDB {
 			}else if(HSB[0] > nameDB[mid].hue){
 				min = mid;
 			}
-/*			if (nameDB[mid].hue <= HSB[0] && HSB[0] <= nameDB[mid+1].hue)
-			{
-				if (HSB[0]-nameDB[mid].hue <= nameDB[mid+1].hue-HSB[0])
-				{
-					index = mid;
-				}
-				else
-				{
-					index = mid+1;
-				}
-				break;
-			}
-			else if (HSB[0] < nameDB[mid].hue)
-			{
-				max = mid;
-				continue;
-			}
-			else if (nameDB[mid+1].hue < HSB[0])
-			{
-				min = mid;
-				continue;
-			}*/
 			
 			if( min == max )
 				index = min;
