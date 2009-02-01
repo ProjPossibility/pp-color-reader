@@ -167,17 +167,41 @@ class ColorDB {
 		// Debug output
 		System.out.println("Testing hue: " + HSB[0]);
 		
+		//If the saturation or brightness are too low and hard to 
+		if(HSB[1] < 0.25 || HSB[2] < 0.25)
+		{
+			return "Brightness or saturation too low.";
+		}
+		
+/*		//Creates the range of the first color in the database
+		float lower = 0;
+		float upper = nameDB[0].hue+()(nameDB[1]-nameDB[0])/2.0);
+		
 		//Loop through the array of database of colors
 		for(int i = 0; i < size; i++)
 		{
-			//Compare the hue of the color to see if it is within a .05 range from the hue of the database color.
-			//And if it is within range, then change the string to the color of the name.
-			if(HSB[0] <= nameDB[i].hue+.05 && HSB[0] >= nameDB[i].hue-.05)
+			//Compare the hue of the color to see if it is within the range of the hue of the database color
+			//And if it is within range, then change the string to the color of the name
+			if(HSB[0] <= upper && HSB[0] >= lower)
 			{
+				if(nameDB[i].hue == nameDB[i+1].hue)
 				name = nameDB[i].name;
-				break;
+				break;  //Break out of loop if within range
 			}
-		}
+			
+			//If not within range change the lower limit of the range to the previous upper limit range.
+			lower = upper;
+			
+			//Check if the loop is about to 
+			if(i == size-1)
+			{
+				upper = 1;
+			}
+			else
+			{
+				upper = nameDB[i+1]+(nameDB[i+2]-nameDB[i+1])/2);
+			}
+		}*/
 		
 		//If the hue is not within the range of any database colors, then return Color not found.
 		if(name == "")
