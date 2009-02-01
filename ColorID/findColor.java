@@ -41,13 +41,13 @@ public class findColor implements ActionListener, MouseListener
 	private String dbPath;			//location of the database
 	private String filename;		//location of the current picture
 	private String text;			//text to be displayed
-	private ColorDB db;
-	private boolean pic_changed = false;
+	private ColorDB db;				//Database of ColorNames which we need to check
+	private boolean pic_changed = false;		//Boolean for if we have loaded another picture
 
     public findColor(String db_in) {
     	//Set the member variables
     	db = new ColorDB(db_in);
-    	pic = new Picture("banana_ripeningchart.jpg");
+    	pic = new Picture("banana_ripeningchart.jpg"); //Default picture, TODO: Should change to handle no picture
     	/****************************************
     	 * Initialize GUI						*
     	 *		Create Form						*
@@ -65,8 +65,8 @@ public class findColor implements ActionListener, MouseListener
     private void getColor()
     {
     	//Local variables
-    	Color pic_color;
-    	String color_name;
+    	Color pic_color;			//Average color around clicked pixel
+    	String color_name;			//
     	
     	/*Call average pixel on pic and the x,y coordinates to find
     	 *the average color around the passed pixel*/
@@ -133,16 +133,16 @@ public class findColor implements ActionListener, MouseListener
     {
     	if (frame == null)			//If frame has not been initialized yet
     	{
-    		frame = new JFrame();
+    		frame = new JFrame();	//Create a new Jframe
     		
     		//Set menu bar
-    		JMenuBar menuBar = new JMenuBar();
-    		JMenu menu = new JMenu("File");
-            menuBar.add(menu);
-            JMenuItem menuItem1 = new JMenuItem(" Load...   ");
-            menuItem1.addActionListener(this);
-            menu.add(menuItem1);
-            frame.setJMenuBar(menuBar);
+    		JMenuBar menuBar = new JMenuBar();		//Add the top menu
+    		JMenu menu = new JMenu("File");			//Create a new menu item
+            menuBar.add(menu);						//add that menu item to the menu
+            JMenuItem menuItem1 = new JMenuItem(" Load...   ");	//Create sub category to the File tab
+            menuItem1.addActionListener(this);		//Add a listener to the menu for when the load button is clicked
+            menu.add(menuItem1);					//add Load sub category to the menu
+            frame.setJMenuBar(menuBar);				//Add menu bar to the frame
             
             Container content = f.getContentPane();
             content.add(new JLabel(text));				//display text
