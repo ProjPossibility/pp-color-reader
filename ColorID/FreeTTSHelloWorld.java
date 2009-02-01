@@ -65,6 +65,7 @@ public class FreeTTSHelloWorld {
         /* Clean up and leave.
          */
         helloVoice.deallocate();
+        System.out.println("well i'm done!");
         System.exit(0);
     }
 }
