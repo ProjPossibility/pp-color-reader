@@ -229,8 +229,8 @@ class ColorDB {
 		int min = 0;
 		int max = size;
 		int mid;
-		int lower;
-		int upper;
+		float lower;
+		float upper;
 		while (true)
 		{
 			mid = (max + min)/2;
