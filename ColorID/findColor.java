@@ -170,7 +170,7 @@ public class findColor implements ActionListener, MouseListener
             //jpMaster.add(jpTop);
             jpMaster.add(jpBot);
             //frame.add(jpMaster);
-            frame.setContentPane(content);
+            frame.setContentPane(pic.getJLabel());
                         
             //frame.setLayeredPane(new JLabel(text));
             //frame.setGlassPane(textbox);
