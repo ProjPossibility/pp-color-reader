@@ -63,7 +63,7 @@ public class ColorRead
         if( talkingHead == null)
         {
         	talkingHead = voiceManager.getVoice(DEFAULT_VOICE);
-        	System.out.println("WARNING:  voice \"" + voiceName + "\" not found, using default.");
+        	System.out.println("WARNING:  voice \"" + newVoiceName + "\" not found, using default.");
         }
     	
     	// Re-allocate the voice resources
