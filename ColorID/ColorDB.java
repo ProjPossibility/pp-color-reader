@@ -238,7 +238,7 @@ class ColorDB {
 		int mid;
 		float lower;
 		float upper;
-		while (true)
+		while (min != max)
 		{
 			mid = (max + min)/2;
 			if(mid == 0){
