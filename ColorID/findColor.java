@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
+//import java.awt.TextComponent;
 
 public class findColor implements ActionListener, MouseListener
 {
@@ -57,8 +58,8 @@ public class findColor implements ActionListener, MouseListener
     	
     	/*Call average pixel on pic and the x,y coordinates to find
     	 *the average color around the passed pixel*/
-    	 pic_color = averagePixel(pic, pic.width()/2-150, pic.height()/2);
-    	 //pic_color = averagePixel(pic, mouse_x, mouse_y);
+    	// pic_color = averagePixel(pic, pic.width(), pic.height());
+    	 pic_color = averagePixel(pic, mouse_x, mouse_y);
     	 
     	 
     	/*Convert the color found into the appropriate english name*/
