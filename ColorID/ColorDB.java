@@ -173,9 +173,9 @@ class ColorDB {
 			return "Brightness or saturation too low.";
 		}
 		
-		//Creates the range of the first color in the database
+/*		//Creates the range of the first color in the database
 		float lower = 0;
-		float upper = nameDB[0].hue + ((nameDB[1].hue-nameDB[0].hue)/2);
+		float upper = nameDB[0].hue+()(nameDB[1]-nameDB[0])/2.0);
 		
 		//Loop through the array of database of colors
 		for(int i = 0; i < size; i++)
@@ -184,6 +184,7 @@ class ColorDB {
 			//And if it is within range, then change the string to the color of the name
 			if(HSB[0] <= upper && HSB[0] >= lower)
 			{
+				if(nameDB[i].hue == nameDB[i+1].hue)
 				name = nameDB[i].name;
 				break;  //Break out of loop if within range
 			}
@@ -198,9 +199,9 @@ class ColorDB {
 			}
 			else
 			{
-				upper = nameDB[i+1].hue+(nameDB[i+2].hue-nameDB[i+1].hue)/2;
+				upper = nameDB[i+1]+(nameDB[i+2]-nameDB[i+1])/2);
 			}
-		}
+		}*/
 		
 		//If the hue is not within the range of any database colors, then return Color not found.
 		if(name == "")
