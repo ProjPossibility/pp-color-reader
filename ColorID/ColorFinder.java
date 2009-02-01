@@ -41,16 +41,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	//Set the member variables
     	db = new ColorDB(db_in);
     	text = "";
-    	pic = new Picture("banana_ripeningchart.jpg"); //Default picture, TODO: Should change to handle no picture
-    	/****************************************
-    	 * Initialize GUI						*
-    	 *		Create Form						*
-    	 *		Mouse Listener					*
-    	 *		Loading Picture					*
-    	 *		Loop							*
-    	 *			-On click call getColor		* 
-    	 *			-Load new picture(getImage)	*
-    	 ****************************************/
+    	pic = new Picture("banana_ripeningchart.jpg"); //Default picture
     }
     
     /* Uses the private members pic and the mouseclick coordinates *
