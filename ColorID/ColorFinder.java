@@ -57,10 +57,10 @@ public class ColorFinder implements ActionListener, MouseListener
     
     /*Change the database.			
      *it take a string and swith the data base     */
-     public void changeDB(String dbnew)
-     {
-     	db = new ColorDB(dbnew);
-     }
+    public void changeDB(String dbnew)
+    {
+    	db = new ColorDB(dbnew);
+    }
      
     /* Uses the private members pic and the mouseclick coordinates *
      * Based on results of functions called alters the GUI to      *
@@ -114,34 +114,33 @@ public class ColorFinder implements ActionListener, MouseListener
     	{
     		for(int xCounter = x - range; xCounter <= x + range; xCounter++)
     		{
-/*
-    			green += (float)(pic.get(x, y).getGreen());
-    			System.out.println("ycounter: " + yCounter + " xcounter: " + xCounter + " green : " + green);
-    			blue += (float)(pic.get(x, y).getBlue());
-    			System.out.println(" blue : " + blue);
-    			red += (float)(pic.get(x, y).getRed());
-    			System.out.println(" red : " + red);
-*/
 
     			// Test to make sure that we are still in bounds
     			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
     			{
-    				green += pic.get(xCounter, yCounter).getGreen();
-    				blue += pic.get(xCounter, yCounter).getBlue();
-    				red += pic.get(xCounter, yCounter).getRed();
-    				total ++;
+    				// The pixel that we are checking is within bounds.  We should    				// add its values to our running sum and assume a greater total    				green += (float)(pic.get(xCounter, yCounter).getGreen());    				blue += (float)(pic.get(xCounter, yCounter).getBlue());    				red += (float)(pic.get(xCounter, yCounter).getRed());    				total ++;
     			}
     		}
     	}
     	
-    	System.out.println ("green: " + green);
-		System.out.println ("blue: " + blue);
-		System.out.println ("red: " + red);
-    	/*Use the resulting RGB values to create* 
-    	 *an average color						*/
-    	Color average = new Color(red/total, green/total, blue/total);
+    	// Check to make sure that we were in bounds (ie there are more than
+    	// 0 total colors in the total
+    	Color average;
+    	if( total > 0 )
+    	{
+    		// Divide the colors by the total number of tests, get an average
+	    	// color
+	    	average = new Color(red/total, green/total, blue/total);
+    	}
+    	else
+    	{
+    		// Since we didn't have any pixels to average, we should
+    		// just return black and an error message
+    		System.out.println("WARNING:  Clicked on an area outside of the area, returning black");
+    		average = new Color(0, 0, 0);
+    	}
     	
-    	/*That is what we want*/
+    	// The color is averaged and ready, gogogo!
    		return average;
     }
     
