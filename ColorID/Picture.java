@@ -16,6 +16,13 @@
  *   - see also GrayPicture.java for a grayscale version
  *
  *************************************************************************/
+ 
+ /************************************************************************
+  *Used by Color Reader - Team 1                                         *
+  *We found this picture class on the internet and utilized it in its raw*
+  *form. Used as an member variable in our ColorFinder class to hold the *
+  *current picture we are trying to identify colors in.                  *
+  ************************************************************************/
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
