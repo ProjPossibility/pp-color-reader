@@ -1,10 +1,20 @@
-Probably_not_a_banana                          0.444 to 1	1 1
-Just_freshly_picked                            0.297 to 0.443	1 1
-Maturing_but_not_ready_to_eat                  0.239 to 0.296	1 1
-Starting_ripening                              0.204 to 0.238	1 1
-Getting_ready_for_eating                       0.180 to 0.203	0.84 1
-sweet_creamy,_and_fim,_ready_to_eat!           0.158 to 0.179	0.86 1
-At_the_peak_of_freshness,_and_delicious_to_eat 0.129 to 0.157	0.88 1
-softened_and_at_the_peak_of_its_sugar_content  0.105 to 0.128	1 1
-Probably_too_ripe                              0.075 to 0.104	1 1
-Probably_not_a_banana                          0 to 0.074	1 1
+Probably_not_a_banana                          0	1 1
+Probably_not_a_banana                          0.074	1 1
+Probably_too_ripe                              0.075	1 1
+Probably_too_ripe                              0.104	1 1
+softened_and_at_the_peak_of_its_sugar_content  0.105	1 1
+softened_and_at_the_peak_of_its_sugar_content  0.128	1 1
+At_the_peak_of_freshness,_and_delicious_to_eat 0.129	0.88 1
+At_the_peak_of_freshness,_and_delicious_to_eat 0.157	0.88 1
+sweet_creamy,_and_fim,_ready_to_eat!           0.158	0.86 1
+sweet_creamy,_and_fim,_ready_to_eat!           0.179	0.86 1
+Getting_ready_for_eating                       0.180	0.84 1
+Getting_ready_for_eating                       0.203	0.84 1
+Starting_ripening                              0.204	1 1
+Starting_ripening                              0.238	1 1
+Maturing_but_not_ready_to_eat                  0.239 	1 1
+Maturing_but_not_ready_to_eat                  0.296	1 1
+Just_freshly_picked                            0.297  	1 1
+Just_freshly_picked                            0.443	1 1
+Probably_not_a_banana                          0.444  	1 1
+Probably_not_a_banana                          1	1 1
