@@ -93,7 +93,7 @@ public class findColor implements ActionListener, MouseListener
     	{
     		for(int xCounter = x - range; xCounter <= x + range; xCounter++)
     		{
-<<<<<<< .mine
+
     			// Test to make sure that we are still in bounds
     			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
     			{
@@ -102,15 +102,6 @@ public class findColor implements ActionListener, MouseListener
     				red += (float)(pic.get(x, y).getRed());
     				total ++;
     			}
-    			
-=======
-    			green += (float)(pic.get(x, y).getGreen());
-    			System.out.println("number " + yCounter + xCounter + " green : " + green);
-    			blue += (float)(pic.get(x, y).getBlue());
-    			System.out.println("number " + yCounter + xCounter + " blue : " + blue);
-    			red += (float)(pic.get(x, y).getRed());
->>>>>>> .r114
-    			System.out.println("number " + yCounter + xCounter + " red : " + red);
     		}
     	}
     	

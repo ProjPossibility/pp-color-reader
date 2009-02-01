@@ -157,7 +157,7 @@ class ColorDB {
 		float[] HSB = new float[3];
 		
 		//Use the library function RGBtoHSB to convert from RGB parameters to HSB parameters
-		HSB = theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
+		theColor.RGBtoHSB(theColor.getRed(), theColor.getGreen(), theColor.getBlue(), HSB);
 		
 		System.out.println("Testing color RGB(" + theColor.getRed() + ", " + theColor.getGreen() + ", " + theColor.getBlue() + ")" );
 		
