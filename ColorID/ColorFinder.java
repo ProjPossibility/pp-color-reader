@@ -17,6 +17,11 @@ import java.net.URL;
 
 public class ColorFinder implements ActionListener, MouseListener
 {
+	private static final String APPLE_DB = "apple.txt";
+	private static final String COLORS_DB = "colors.txt";
+	private static final String SIMPLIFIED_DB = "simplified.txt";
+	private static final String BANANA_DB = "banana.txt";
+	
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
@@ -39,9 +44,9 @@ public class ColorFinder implements ActionListener, MouseListener
 	
 	private ColorRead ttsAgent;		// The object that reads the color name
 
-    public ColorFinder(String db_in) {
+    public ColorFinder() {
     	//Set the member variables
-    	db = new ColorDB(db_in);
+    	db = new ColorDB(SIMPLIFIED_DB);
     	text = "";
     	pic = new Picture("banana_ripeningchart.jpg"); //Default picture
     	
@@ -121,9 +126,9 @@ public class ColorFinder implements ActionListener, MouseListener
     			// Test to make sure that we are still in bounds
     			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
     			{
-    				green += (float)(pic.get(xCounter, yCounter).getGreen());
-    				blue += (float)(pic.get(xCounter, yCounter).getBlue());
-    				red += (float)(pic.get(xCounter, yCounter).getRed());
+    				green += pic.get(xCounter, yCounter).getGreen();
+    				blue += pic.get(xCounter, yCounter).getBlue();
+    				red += pic.get(xCounter, yCounter).getRed();
     				total ++;
     			}
     		}
@@ -170,11 +175,41 @@ public class ColorFinder implements ActionListener, MouseListener
     		
     		//Configure menuBar
     		JMenuBar menuBar = new JMenuBar();		//Add the top menu
-    		JMenu menu = new JMenu("File");			//Create a new menu item
-            menuBar.add(menu);						//add that menu item to the menu
+    		JMenu menuFile = new JMenu("File");			//Create a new menu item
+            menuBar.add(menuFile);						//add that menu item to the menu
             JMenuItem menuItem1 = new JMenuItem(" Load...   ");	//Create sub category to the File tab
             menuItem1.addActionListener(this);		//Add a listener to the menu for when the load button is clicked
-            menu.add(menuItem1);					//add Load sub category to the menu
+            menuItem1.setActionCommand("loadpic");		//Set the ActionCommand to load
+            menuFile.add(menuItem1);					//add Load sub category to the menu
+            
+            JMenu menuDB = new JMenu("Database");			//Create a new menu item
+            menuBar.add(menuDB);
+            
+            JMenuItem menuItem2 = new JMenuItem("Apple");
+            menuItem2.addActionListener(this);
+            menuItem2.setActionCommand("Apple");
+            menuDB.add(menuItem2);
+            
+            JMenuItem menuItem3 = new JMenuItem("Banana");
+            menuItem3.addActionListener(this);
+            menuItem3.setActionCommand("Banana");
+            menuDB.add(menuItem3);
+            
+            JMenuItem menuItem4 = new JMenuItem("Simplified Colors");
+            menuItem4.addActionListener(this);
+            menuItem4.setActionCommand("simplified");
+            menuDB.add(menuItem4);
+            
+            JMenuItem menuItem5 = new JMenuItem("Complex Colors");
+            menuItem5.addActionListener(this);
+            menuItem5.setActionCommand("complex");
+            menuDB.add(menuItem5);
+            
+            JMenuItem menuItem6 = new JMenuItem("Custom Database");
+            menuItem6.addActionListener(this);
+            menuItem6.setActionCommand("loadDB");
+            menuDB.add(menuItem6);
+            
             jpMenu.add(menuBar);				//Add menu bar to the frame
             
             //Container content = new Container();
@@ -185,7 +220,7 @@ public class ColorFinder implements ActionListener, MouseListener
             //Set top panel to the picture and add a mouselistener
             jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            jpTop.setSize(new Dimension(640, 480));
+            //jpTop.setMaximumSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
@@ -233,7 +268,7 @@ public class ColorFinder implements ActionListener, MouseListener
     		//Set top panel to the picture and add a mouselistener
     		jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            jpTop.setSize(new Dimension(640, 480));
+            //jpTop.setMaximumSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
@@ -259,18 +294,48 @@ public class ColorFinder implements ActionListener, MouseListener
     
     public void actionPerformed(ActionEvent e) 
     {
-        FileDialog chooser = new FileDialog(frame,
-                             "Use a .png or .jpg extension", FileDialog.LOAD);
-        chooser.setVisible(true);
-        if (chooser.getFile() != null) 
-        {
-            pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
-            System.out.println("got to new picture");
-            pic_changed = true;
-            frame.dispose();
-            text = "";
-            GUI();
-        }
+    	if("loadpic".equals(e.getActionCommand()))
+    	{
+	    	FileDialog chooser = new FileDialog(frame,
+	                             "Use a .png or .jpg extension", FileDialog.LOAD);
+	        chooser.setVisible(true);
+	        if (chooser.getFile() != null) 
+	        {
+	            pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
+	            System.out.println("got to new picture");
+	            pic_changed = true;
+	            frame.dispose();
+	            text = "";
+	            GUI();
+	        }
+    	}
+    	else if("apple".equals(e.getActionCommand()))
+    	{
+    		changeDB(APPLE_DB);
+    	}
+    	else if("banana".equals(e.getActionCommand()))
+    	{
+    		changeDB(BANANA_DB);
+    	}
+    	else if("simplified".equals(e.getActionCommand()))
+    	{
+    		changeDB(SIMPLIFIED_DB);
+    	}
+    	else if("complex".equals(e.getActionCommand()))
+    	{
+    		changeDB(COLORS_DB);
+    	}
+    	else if("loadDB".equals(e.getActionCommand()))
+    	{
+    		FileDialog DBchooser = new FileDialog(frame,
+	                             "Use a .txt extension", FileDialog.LOAD);
+	        DBchooser.setVisible(true);
+	        if (DBchooser.getFile() != null) 
+	        {
+	            changeDB(DBchooser.getDirectory() + File.separator + DBchooser.getFile());
+	        }
+    	}
+        
     }
 
 	//mouse detection
