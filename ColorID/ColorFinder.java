@@ -15,7 +15,7 @@ import java.awt.event.*;
 import java.net.URL;
 //import java.awt.TextComponent;
 
-public class findColor implements ActionListener, MouseListener
+public class ColorFinder implements ActionListener, MouseListener
 {
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
@@ -37,7 +37,7 @@ public class findColor implements ActionListener, MouseListener
 	private ColorDB db;				//Database of ColorNames which we need to check
 	private boolean pic_changed = false;		//Boolean for if we have loaded another picture
 
-    public findColor(String db_in) {
+    public ColorFinder(String db_in) {
     	//Set the member variables
     	db = new ColorDB(db_in);
     	text = "";
