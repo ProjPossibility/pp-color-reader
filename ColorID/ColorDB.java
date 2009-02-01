@@ -94,7 +94,7 @@ class ColorDB {
 				// character.
 				// If the first character is a # or a newline, the line
 				// is completely ignored
-				if( line.getChar(0) != '#' && line.getChar(0) != '\n' )
+				if( line.charAt(0) != '#' && line.charAt(0) != '\n' )
 				{
 					// Create the ColorName value at the correct index in the array
 					nameDB[i] = new ColorName(line);
