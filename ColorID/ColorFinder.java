@@ -96,7 +96,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	/*Set the lower and upper limint for reference
     	 */
 
-    	int range = 10;
+    	int range = 0;
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	int green = 0, blue = 0, red = 0;
@@ -276,8 +276,8 @@ public class ColorFinder implements ActionListener, MouseListener
 	//mouse detection
 	public void mouseClicked(MouseEvent e)
 	{
-		mouse_x = e.getX();
-		mouse_y = e.getY();
+		mouse_x = e.getX()-5;	//picture is shifted left 5 pixels with gui
+		mouse_y = e.getY()-5;	//picture is shifted up 5 pixels with gui
 		System.out.println("mouse x click Coordinate = " + mouse_x);
 		System.out.println("mouse y click Coordinate = " + mouse_y);
 		
