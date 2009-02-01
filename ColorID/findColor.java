@@ -76,10 +76,10 @@ public class findColor implements ActionListener, MouseListener
     {
     	/*Set the lower and upper limint for reference
     	 */
-    	int lower = y + 1;
-    	if (lower >= pic.height()) lower = pic.height()-1;
-    	int upper = y - 1;
-    	if (upper < 0) upper = 0;
+    	int lower = y - 1;
+    	if (lower < 0) lower = 0;
+    	int upper = y + 1;
+    	if (upper >= pic.height()) upper = pic.height()-1;
     	int left = x - 1;
     	if (left < 0) left = 0;
     	int right = x + 1;
