@@ -268,7 +268,7 @@ class ColorDB {
 	private String compareSatL(int index, float s)
 	{
 		System.out.println("Index is : " + index);
-		while(nameDB[index].hue == nameDB[index-1].hue)
+		while(index != 0 && nameDB[index].hue == nameDB[index-1].hue)
 		{
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index-1].sat)){
 				return nameDB[index].name;
@@ -281,7 +281,7 @@ class ColorDB {
 	
 	private String compareSatR(int index, float s)
 	{
-		while(nameDB[index].hue == nameDB[index-1].hue)
+		while(index != size-1 && nameDB[index].hue == nameDB[index-1].hue)
 		{
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index+1].sat)){
 				return nameDB[index].name;
