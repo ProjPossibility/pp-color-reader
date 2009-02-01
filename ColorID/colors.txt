@@ -33,6 +33,6 @@ Magenta         0.842     1     1
 Hot_Magenta     0.878     1     1
 Deep_Pink       0.922     1     1
 Razzmatazz      0.936     1     1
-Torch Red       0.978     1     1
+Torch_Red       0.978     1     1
 Brown               1 0.745 0.647
 Red                 1     1     1
