@@ -229,18 +229,20 @@ class ColorDB {
 		int min = 0;
 		int max = size;
 		int mid;
+		int lower;
+		int upper;
 		while (true)
 		{
 			mid = (max + min)/2;
 			if(mid == 0){
 				lower = 0;
-				upper = nameDB[mid].hue+(nameDB[mid+1]+nameDB[mid])/2;
+				upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
 			}else if(mid == size-1){
-				lower = nameDB[mid].hue-(nameDB[mid-1]+nameDB[mid])/2;
+				lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid].hue)/2;
 				upper = 1;
 			}else{
-				lower = nameDB[mid].hue-(nameDB[mid-1]+nameDB[mid])/2;
-				upper = nameDB[mid].hue+(nameDB[mid+1]+nameDB[mid])/2;
+				lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid].hue)/2;
+				upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
 			}
 			
 			if(lower <= HSB[0] && HSB[0] <= upper)
