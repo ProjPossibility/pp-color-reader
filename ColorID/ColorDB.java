@@ -256,6 +256,14 @@ class ColorDB {
 			}
 		}
 		
+		if(nameDB[index].sat > HSB[1]){
+			name = compareSatL(index, HSB[1]);	
+		}else if(nameDB[index].sat < HSB[1]){
+			name = compareSatR(index, HSB[1]);
+		}else if(nameDB[index].sat == HSB[1]){
+			name = nameDB[index].name;
+		}
+
 		//If the hue is not within the range of any database colors, then return Color not found.
 		if(name == "")
 		{
@@ -267,4 +275,29 @@ class ColorDB {
 		return name;
 	}
 
+	private String compareSatL(int index, float s)
+	{
+		while(nameDB[index].hue == nameDB[index-1].hue)
+		{
+			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index-1].sat)){
+				return nameDB[index].name;
+			}else{
+				index--;
+			}
+		}
+		return nameDB[index].name;
+	}
+	
+	private String compareSatR(int index, float s)
+	{
+		while(nameDB[index].hue == nameDB[index-1].hue)
+		{
+			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index+1].sat)){
+				return nameDB[index].name;
+			}else{
+				index++;
+			}
+		}
+		return nameDB[index].name;
+	}
 }
