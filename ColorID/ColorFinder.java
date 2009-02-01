@@ -169,7 +169,7 @@ public class ColorFinder implements ActionListener, MouseListener
             //Set top panel to the picture and add a mouselistener
             jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            jpTop.setMaximumSize(new Dimension(640, 480));
+            jpTop.setSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
@@ -217,7 +217,7 @@ public class ColorFinder implements ActionListener, MouseListener
     		//Set top panel to the picture and add a mouselistener
     		jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            jpTop.setMaximumSize(new Dimension(640, 480));
+            jpTop.setSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
