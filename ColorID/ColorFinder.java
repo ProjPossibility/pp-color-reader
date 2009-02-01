@@ -36,17 +36,24 @@ public class ColorFinder implements ActionListener, MouseListener
 	private String text;			//text to be displayed
 	private ColorDB db;				//Database of ColorNames which we need to check
 	private boolean pic_changed = false;		//Boolean for if we have loaded another picture
+	
+	private ColorRead ttsAgent;		// The object that reads the color name
 
     public ColorFinder(String db_in) {
     	//Set the member variables
     	db = new ColorDB(db_in);
     	text = "";
     	pic = new Picture("banana_ripeningchart.jpg"); //Default picture
+    	
+    	// Create the TTS agent
+    	ttsAgent = new ColorRead("Kevin16");
+    	
     }
     
     /*Change the database.			
      *it take a string and swith the data base     */
-     public void change db(String dbnew){
+     public void changeDB(String dbnew)
+     {
      	db = new ColorDB(dbnew);
      }
      
@@ -74,6 +81,9 @@ public class ColorFinder implements ActionListener, MouseListener
     	 
     	colorText.setText(text);
     	GUI();
+    	
+    	// Gets the Text to Speech agent to repeat the color name
+    	ttsAgent.speak(color_name);
     	
     	return;
     }
