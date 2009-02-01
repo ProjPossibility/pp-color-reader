@@ -1,0 +1,6 @@
+Hue			Name
+0 to 0.096		This is a red Apple
+0.097 to 0.193		This is a golden Apple
+0.194 to 0.416		This is a green Apple
+0.147 to 0.916		Sorry this is not a Apple
+0.917 to 1		This is a red Apple
