@@ -170,7 +170,59 @@ class ColorDB {
 			return "Brightness or saturation too low.";
 		}
 		
-		// Find hue index in the data base using binary search.
+		int index = searchHue(HSB);
+		
+		System.out.println(index);
+		
+		if(nameDB[index].sat > HSB[1])
+			name = compareSatL(index, HSB[1]);	
+		else if(nameDB[index].sat < HSB[1])
+			name = compareSatR(index, HSB[1]);
+		else if(nameDB[index].sat == HSB[1])
+			name = nameDB[index].name;
+
+		//If the hue is not within the range of any database colors, then return Color not found.
+		if(name == "")
+		{
+			return "Color not found.";
+		}
+		
+		//If a color is found, then return the name of the color.
+		System.out.println("Color found: " + name);
+		return name;
+	}
+
+/*	private int searchHue(float[] HSB, float lower, float upper, int min, int max) 
+	{
+		
+		if (max < min)
+           return -1; // not found
+		int mid = min + (max - min) / 2;  // Note: not (low + high) / 2 !!
+		
+		if(mid == 0)
+		{
+			lower = 0;
+			upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
+		}else if(mid == size-1){
+			lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid-1].hue)/2;
+			upper = 1;
+		}else{
+			lower = nameDB[mid].hue-(nameDB[mid-1].hue-nameDB[mid-1].hue)/2;
+			upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
+		}
+		
+		if (nameDB[mid].hue > upper)
+           return searchHue(HSB, lower, upper, min, mid-1);
+		else if (nameDB[mid].hue < lower)
+			return searchHue(HSB, lower, upper, mid+1, max);
+		else
+			return mid; // found
+   }*/
+
+
+	// Find hue index in the data base using binary search.
+	private int searchHue(float[] HSB)
+	{
 		int index = 0;
 		int min = 0;
 		int max = size;
@@ -186,13 +238,13 @@ class ColorDB {
 			//Special case 
 			if(mid == 0){
 				lower = 0;
-				upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
+				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
 			}else if(mid == size-1){
-				lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid].hue)/2;
+				lower = nameDB[mid].hue-(nameDB[mid].hue-nameDB[mid-1].hue)/2;
 				upper = 1;
 			}else{
-				lower = nameDB[mid].hue-(nameDB[mid-1].hue+nameDB[mid].hue)/2;
-				upper = nameDB[mid].hue+(nameDB[mid+1].hue+nameDB[mid].hue)/2;
+				lower = nameDB[mid].hue-(nameDB[mid].hue-nameDB[mid-1].hue)/2;
+				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
 			}
 			
 			if(lower <= HSB[0] && HSB[0] <= upper)
@@ -209,30 +261,13 @@ class ColorDB {
 			{
 				index = min;
 			}
-			
 		}
-		
-		if(nameDB[index].sat > HSB[1]){
-			name = compareSatL(index, HSB[1]);	
-		}else if(nameDB[index].sat < HSB[1]){
-			name = compareSatR(index, HSB[1]);
-		}else if(nameDB[index].sat == HSB[1]){
-			name = nameDB[index].name;
-		}
-
-		//If the hue is not within the range of any database colors, then return Color not found.
-		if(name == "")
-		{
-			return "Color not found.";
-		}
-		
-		//If a color is found, then return the name of the color.
-		System.out.println("Color found: " + name);
-		return name;
+		return index;
 	}
-
+	
 	private String compareSatL(int index, float s)
 	{
+		System.out.println("Index is : " + index);
 		while(nameDB[index].hue == nameDB[index-1].hue)
 		{
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index-1].sat)){
