@@ -208,6 +208,7 @@ public class findColor implements ActionListener, MouseListener
     	}
     	if (pic_changed)
     	{
+    		frame = new JFrame();	//Create a new Jframe
     		//Instantiate Panels
     		jpTop = new JPanel();
     		jpBot = new JPanel();
