@@ -1,6 +1,6 @@
 Probably_not_a_banana                          0.400    1 1
 Just_freshly_picked                            0.356    1 1
-Maturing_but_not_ready_to_eat                  o.277    1 1
+Maturing_but_not_ready_to_eat                  0.277    1 1
 Starting_ripening                              0.240    1 1
 Getting_ready_for_eating                       0.208 0.84 1
 sweet_creamy,_and_fim,_ready_to_eat!           0.189 0.86 1
