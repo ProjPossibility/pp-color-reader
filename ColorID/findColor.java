@@ -150,6 +150,7 @@ public class findColor implements ActionListener, MouseListener
     		JTextArea colorText = new JTextArea();
     		JScrollPane ctDisplay = new JScrollPane(colorText);
     		colorText.setText(text);
+    		text.setEditable(false);
     		jpBot.add(ctDisplay);
     		
     		//Set menu bar
