@@ -6,12 +6,14 @@
 		<root_path>\</root_path>
 		<output_path>\</output_path>
 		<source_path>\</source_path>
-		<jdkprofile_ref/>
-		<compiler_ref/>
+		<jdkprofile_ref>JDK version 1.6.0_11</jdkprofile_ref>
+		<compiler_ref>&lt;Default&gt;</compiler_ref>
 		<ant_ref/>
 	</settings>
 	<ant_events/>
-	<run_items/>
+	<run_items>
+		<item run="Runner"/>
+	</run_items>
 	<runtimes>
 		<runtime>
 			<label>&lt;Default&gt;</label>
@@ -19,13 +21,35 @@
 			<applet_ref/>
 			<debugger_ref/>
 			<param/>
-			<run/>
+			<run>Runner</run>
 			<verify>true</verify>
 		</runtime>
 	</runtimes>
-	<libraries/>
+	<libraries>
+		<library_ref>freetts</library_ref>
+		<library_ref>TTS</library_ref>
+	</libraries>
 	<files>
-		<include/>
+		<include>
+			<fileitem>
+				<path>ColorDB.java</path>
+			</fileitem>
+			<fileitem>
+				<path>ColorFinder.java</path>
+			</fileitem>
+			<fileitem>
+				<path>ColorName.java</path>
+			</fileitem>
+			<fileitem>
+				<path>ColorRead.java</path>
+			</fileitem>
+			<fileitem>
+				<path>Picture.java</path>
+			</fileitem>
+			<fileitem>
+				<path>Runner.java</path>
+			</fileitem>
+		</include>
 		<exclude>
 			<fileitem>
 				<path>Picture.class</path>
