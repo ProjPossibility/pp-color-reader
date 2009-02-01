@@ -78,39 +78,45 @@ public class findColor implements ActionListener, MouseListener
     	System.out.println ("averagePixel is called ");
     	/*Set the lower and upper limint for reference
     	 */
-    	int lower = y - 1;
-    	if (lower < 0) lower = 0;
-    	int upper = y + 1;
-    	if (upper >= pic.height()) upper = pic.height()-1;
-    	int left = x - 1;
-    	if (left < 0) left = 0;
-    	int right = x + 1;
-    	if (right < pic.width()) right = pic.width()-1;
+    	int range = 4;
+    	
     	
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	float green = 0, blue = 0, red = 0;
     	
+    	int total = 0;
+    	
     	/*Scan all pixels around (x, y) and store		*
     	 *their RGB values, changing to floats			*/
-    	for(int yCounter = lower; yCounter <= upper; yCounter++)
+    	for(int yCounter = y - range; yCounter <= y + range; yCounter++)
     	{
-    		for(int xCounter = left; xCounter <= right; xCounter++)
+    		for(int xCounter = x - range; xCounter <= x + range; xCounter++)
     		{
+<<<<<<< .mine
+    			// Test to make sure that we are still in bounds
+    			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
+    			{
+    				green += (float)(pic.get(x, y).getGreen());
+    				blue += (float)(pic.get(x, y).getBlue());
+    				red += (float)(pic.get(x, y).getRed());
+    				total ++;
+    			}
+    			
+=======
     			green += (float)(pic.get(x, y).getGreen());
     			System.out.println("number " + yCounter + xCounter + " green : " + green);
     			blue += (float)(pic.get(x, y).getBlue());
     			System.out.println("number " + yCounter + xCounter + " blue : " + blue);
     			red += (float)(pic.get(x, y).getRed());
+>>>>>>> .r114
     			System.out.println("number " + yCounter + xCounter + " red : " + red);
     		}
     	}
     	
     	/*Use the resulting RGB values to create* 
     	 *an average color						*/
-    	Color average = new Color(red/((right-left)*(upper-lower)),
-    								 green/((right-left)*(upper-lower)),
-    								 blue/((right-left)*(upper-lower)));
+    	Color average = new Color(red/total, green/total, blue/total);
     	
     	/*That is what we want*/
    		return average;
