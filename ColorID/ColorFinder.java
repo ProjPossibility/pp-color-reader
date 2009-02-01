@@ -192,12 +192,12 @@ public class ColorFinder implements ActionListener, MouseListener
             
             JMenuItem menuItem2 = new JMenuItem("Apple");
             menuItem2.addActionListener(this);
-            menuItem2.setActionCommand("Apple");
+            menuItem2.setActionCommand("apple");
             menuDB.add(menuItem2);
             
             JMenuItem menuItem3 = new JMenuItem("Banana");
             menuItem3.addActionListener(this);
-            menuItem3.setActionCommand("Banana");
+            menuItem3.setActionCommand("banana");
             menuDB.add(menuItem3);
             
             JMenuItem menuItem4 = new JMenuItem("Simplified Colors");
