@@ -137,7 +137,7 @@ public class findColor implements ActionListener, MouseListener
             frame.setContentPane(content);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
-            frame.addMouseListener(this);				
+            frame.addMouseListener(content);				
             
             frame.setResizable(false);
             frame.pack();
