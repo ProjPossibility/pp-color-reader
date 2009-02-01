@@ -22,8 +22,8 @@ public class Runner
         Color x = pic.get(4,5);
         System.out.println(x);*/
         
-        ColorFinder test = new ColorFinder();
-        test.GUI();
+        ColorFinder cf = new ColorFinder();
+        cf.GUI();
     }
     
     
