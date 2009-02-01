@@ -167,7 +167,7 @@ class ColorDB {
 		{
 			//Compare the hue of the color to see if it is within a .05 range from the hue of the database color.
 			//And if it is within range, then change the string to the color of the name.
-			if(HSB[0] <= nameDB[i].hue || HSB[0] >= nameDB[i].hue)
+			if(HSB[0] <= nameDB[i].hue+.05 && HSB[0] >= nameDB[i].hue-.05)
 			{
 				name = nameDB[i].name;
 				break;
