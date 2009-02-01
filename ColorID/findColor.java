@@ -152,8 +152,7 @@ public class findColor implements ActionListener, MouseListener
             frame.setJMenuBar(menuBar);				//Add menu bar to the frame
             
             Container content = frame.getContentPane();
-            TextComponent textbox = new TextComponent(text);
-            textbox.setText(text);
+            Label textbox = new Label(text);
             content.add(pic.getJLabel());			//display image
             //content.add(new JLabel(text));				//display text
             frame.setContentPane(content);
