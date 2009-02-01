@@ -95,6 +95,11 @@ class ColorDB {
 			
 			// Update the number of colors in the database
 			size = i;
+			
+			// Make sure that the array of names is sorted
+			// do this using the basic java array sort
+			Arrays.sort(nameDB, 0, size-1, ColorName.compare );
+			
     	}
     	catch (IOException e) 
     	{
@@ -124,12 +129,24 @@ class ColorDB {
 	 * SortByHue
 	 *
 	 * Sorts the database by hue values, making it faster to search
-	 * for the name of a specific hue.
+	 * for the name of a specific hue.  Uses the hue comparitor
+	 * of colorname
+	 *
+	 * PARAMETERS
+	 *		
 	 * ************************************************************/
-	public void SortByHue()
+	public void SortByHue( int min, int max, int pivot )
 	{
 		
+		// Utilizing a comparison function of ColorName, let's
+		// use the basic java sorting algorithm
+		
+	
 	}
+	
+	
+	
+	
 	
 	
 	
