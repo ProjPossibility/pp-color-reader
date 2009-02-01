@@ -57,10 +57,11 @@ public class ColorFinder implements ActionListener, MouseListener
     
     /*Change the database.			
      *it take a string and swith the data base     */
-    public void changeDB(String dbnew)
-    {
-    	db = new ColorDB(dbnew);
-    }
+     public void changeDB(String dbnew)
+     {
+     	System.out.println("Changing the Database");
+     	db = new ColorDB(dbnew);
+     }
      
     /* Uses the private members pic and the mouseclick coordinates *
      * Based on results of functions called alters the GUI to      *
