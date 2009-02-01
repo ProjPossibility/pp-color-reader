@@ -87,7 +87,6 @@ class ColorDB {
 			while ( ((line = fin.readLine()) != null) && i < MAX_N_COLORS )
 			{
 				// Create the ColorName value at the correct index in the array
-				System.out.println(line);
 				nameDB[i] = new ColorName(line);
 				
 				// Increment the location in the database
@@ -182,6 +181,7 @@ class ColorDB {
 		}
 		
 		//If a color is found, then return the name of the color.
+		System.out.println("Color found: " + name);
 		return name;
 	}
 
