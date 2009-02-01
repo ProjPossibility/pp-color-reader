@@ -41,7 +41,7 @@ public class ColorName
     	name = dbString.substring(c, nextC);
     	
     	// Remove any underscores from the name, convert to spaces
-    	name.replace('_', ' ');
+    	name = name.replace('_', ' ');
     	
     	// Increase our iterator to the current location
     	c = nextC;
