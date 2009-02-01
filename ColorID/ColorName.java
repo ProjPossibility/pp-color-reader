@@ -122,6 +122,68 @@ public class ColorName
     
     
     ///////////////////////////////////////////////////////////////////////
+    //                           Overrides                               //
+    ///////////////////////////////////////////////////////////////////////
+   
+    /* ********************************************************************
+	 * 
+	 * Compare
+	 *
+	 * Compares two color names.  This is used for sorting color names
+	 * by hue.
+	 *
+	 * PARAMETERS:
+	 *		o1 - The first color name
+	 *		o2 - The second color name
+	 *
+	 * RETURNS:
+	 *		1 if the hue of o1 is greater than that of o2
+	 *		-1 if the hue of o1 is less than that of o2
+	 *		0 if the hue of o1 is equal to that of o2
+	 *
+	 * ********************************************************************/
+   
+    public int compare( ColorName o1, ColorName o2 )
+    {
+    	
+    	if( o1.hue > o2.hue )
+    		return 1;
+    	if( o1.hue < o2.hue )
+    		return -1;
+    	if( o1.hue == o2.hue )
+    		return 0;    	
+    }
+    
+    
+    
+    /* ********************************************************************
+	 * 
+	 * Compare
+	 *
+	 * Compares two color names.  This is used for sorting color names
+	 * by hue.
+	 *
+	 * PARAMETERS:
+	 *		o1 - The first color name
+	 *		o2 - The second color name
+	 *
+	 * RETURNS:
+	 *		true if the hues are equal, false otherwise.
+	 *
+	 * ********************************************************************/
+   
+    public boolean equal( ColorName o1, ColorName o2 )
+    {
+    	if( o1.hue == o2.hue )
+    		return true;
+    		
+    	return false;    	
+    }
+    
+    
+    
+    
+    ///////////////////////////////////////////////////////////////////////
 	//                       Member Variables                            //
 	///////////////////////////////////////////////////////////////////////
     
