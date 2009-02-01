@@ -7,6 +7,8 @@
  */
 
 
+import java.util.Comparator; // For comparitor
+
 public class ColorName  
 {
 	
@@ -139,7 +141,7 @@ public class ColorName
 
 
 
-class ColorNameCompare implements Comparator
+class ColorNameCompare implements Comparator 
 {
 	
 	/* ********************************************************************
