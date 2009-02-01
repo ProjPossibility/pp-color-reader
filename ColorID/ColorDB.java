@@ -111,19 +111,19 @@ class ColorDB {
 				System.out.println("   " + nameDB[counter].name + ", Hue: " + nameDB[counter].hue + ", Sat: " + nameDB[counter].sat );
 			}
 			
+			// Close up the file
+			fin.close();
+			
     	}
     	catch (IOException e) 
     	{
              // e.printStackTrace();
              throw new RuntimeException("Could not open file");
+             
+             // Make the database size 0 since it does not exist
+             size = 0;
     	}
     	
-		// Close up the file if it exists.  if it does not,
-		// make sure that the size is 0
-		if( fin != null)
-			fin.close();
-		else
-			size = 0;
 	}	
 	
 	
