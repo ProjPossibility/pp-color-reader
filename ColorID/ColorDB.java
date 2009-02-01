@@ -291,10 +291,10 @@ class ColorDB {
 		//While the indicated index is not the first index and the index to the left of the indicated index have the same hue
 		while(index != 0 && nameDB[index].hue == nameDB[index-1].hue)
 		{
-			//If the saturation of the indicated index is closer to the saturation of the color than the saturation of the index to the left of the indicated index
+			//If the saturation of the indicated index is closer or equal distance to the saturation of the color than the saturation of the index to the left of the indicated index
 			//then the name of the color is the name of the indicated index.
 			//Else move the index one to the left and repeat the loop.
-			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index-1].sat)){
+			if(Math.abs(s - nameDB[index].sat) <= Math.abs(s - nameDB[index-1].sat)){
 				return nameDB[index].name;
 			}else{
 				index--;
@@ -312,10 +312,10 @@ class ColorDB {
 		//While the indicated index is not the last index and the index to the right of the indicated index have the same hue
 		while(index != size-1 && nameDB[index].hue == nameDB[index+1].hue)
 		{
-			//If the saturation of the indicated index is closer to the saturation of the color than the saturation of the index to the right of the indicated index
+			//If the saturation of the indicated index is closer or equal distance to the saturation of the color than the saturation of the index to the right of the indicated index
 			//then the name of the color is the name of the indicated index.
 			//Else move the index one to the right and repeat the loop.
-			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index+1].sat)){
+			if(Math.abs(s - nameDB[index].sat) <= Math.abs(s - nameDB[index+1].sat)){
 				return nameDB[index].name;
 			}else{
 				index++;
