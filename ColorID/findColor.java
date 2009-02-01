@@ -8,23 +8,9 @@
  
 import java.io.File;
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JLabel;
-import javax.swing.JMenuItem;
-import javax.swing.ImageIcon;
-import javax.swing.KeyStroke;
 import javax.swing.*;
-import java.awt.FileDialog;
-import java.awt.Toolkit;
-import java.awt.Color;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
 
@@ -47,6 +33,7 @@ public class findColor implements ActionListener, MouseListener
     public findColor(String db_in) {
     	//Set the member variables
     	db = new ColorDB(db_in);
+    	text = "ajf;ljfea";
     	pic = new Picture("banana_ripeningchart.jpg"); //Default picture, TODO: Should change to handle no picture
     	/****************************************
     	 * Initialize GUI						*
