@@ -117,11 +117,13 @@ class ColorDB {
     	}
     	catch (IOException e) 
     	{
+    		// Make the database size 0 since it does not exist
+        	size = 0;
+    		
              // e.printStackTrace();
              throw new RuntimeException("Could not open file");
              
-             // Make the database size 0 since it does not exist
-             size = 0;
+             
     	}
     	
 	}	
