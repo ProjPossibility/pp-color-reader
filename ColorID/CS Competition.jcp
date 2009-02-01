@@ -25,32 +25,7 @@
 	</runtimes>
 	<libraries/>
 	<files>
-		<include>
-			<fileitem>
-				<path>AveragePixels.java</path>
-			</fileitem>
-			<fileitem>
-				<path>ColorDB.java</path>
-			</fileitem>
-			<fileitem>
-				<path>ColorGUI.java</path>
-			</fileitem>
-			<fileitem>
-				<path>ColorName.java</path>
-			</fileitem>
-			<fileitem>
-				<path>FindColor.java</path>
-			</fileitem>
-			<fileitem>
-				<path>GUI.java</path>
-			</fileitem>
-			<fileitem>
-				<path>Picture.java</path>
-			</fileitem>
-			<fileitem>
-				<path>Runner.java</path>
-			</fileitem>
-		</include>
+		<include/>
 		<exclude>
 			<fileitem>
 				<path>Picture.class</path>
@@ -60,12 +35,5 @@
 			</fileitem>
 		</exclude>
 	</files>
-	<tasks>
-		<todotaskitem>
-			<description>TODO: Should change to handle no picture</description>
-			<filepath>FindColor.java</filepath>
-			<line>46</line>
-			<timestamp>1233461780</timestamp>
-		</todotaskitem>
-	</tasks>
+	<tasks/>
 </project>
