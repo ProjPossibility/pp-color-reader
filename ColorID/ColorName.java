@@ -7,7 +7,7 @@
  */
 
 
-public class ColorName
+public class ColorName  
 {
 	
 
@@ -116,16 +116,33 @@ public class ColorName
     	val = p_val;
     	name = p_name;    	
     }
-    
-    
-    
+
     
     
     ///////////////////////////////////////////////////////////////////////
-    //                           Overrides                               //
-    ///////////////////////////////////////////////////////////////////////
-   
+	//                       Member Variables                            //
+	///////////////////////////////////////////////////////////////////////
+    
     /* ********************************************************************
+     * Structure variables.
+     * I'm leaving these as public because there is no need for the
+     * processing overhead of using accessors and the like.  This is
+     * more just a struct anyway.
+     * ********************************************************************/
+    public float	hue;			// The HUE value in the HSV color space
+    public float	sat;			// The SATURATION value in the HSV color space
+    public float	val;			// The VALUE value in the HSV color space
+    public String	name;			// The name that corresponds to the HSV color
+  
+}
+
+
+
+
+class ColorNameCompare implements Comparator
+{
+	
+	/* ********************************************************************
 	 * 
 	 * Compare
 	 *
@@ -169,10 +186,9 @@ public class ColorName
     }
     
     
-    
     /* ********************************************************************
 	 * 
-	 * Compare
+	 * Equal
 	 *
 	 * Compares two color names.  This is used for sorting color names
 	 * by hue.
@@ -193,23 +209,5 @@ public class ColorName
     		
     	return false;    	
     }
-    
-    
-    
-    
-    ///////////////////////////////////////////////////////////////////////
-	//                       Member Variables                            //
-	///////////////////////////////////////////////////////////////////////
-    
-    /* ********************************************************************
-     * Structure variables.
-     * I'm leaving these as public because there is no need for the
-     * processing overhead of using accessors and the like.  This is
-     * more just a struct anyway.
-     * ********************************************************************/
-    public float	hue;			// The HUE value in the HSV color space
-    public float	sat;			// The SATURATION value in the HSV color space
-    public float	val;			// The VALUE value in the HSV color space
-    public String	name;			// The name that corresponds to the HSV color
-  
+
 }
