@@ -66,7 +66,9 @@ public class ColorFinder implements ActionListener, MouseListener
     	/*Now that we have found the color we want to output alter
     	 *the GUI to display the color to the user*/
     	 
-    	colorText.setText(color_name);
+    	 colorText.setText(text);
+    	//frame.dispose();
+    	//pic_changed = true;
     	GUI();
     	
     	return;
@@ -206,7 +208,7 @@ public class ColorFinder implements ActionListener, MouseListener
     		//Instantiate Text box
     		colorText = new JTextArea();
     		ctDisplay = new JScrollPane(colorText);
-    		colorText.setText("");
+    		colorText.setText(text);
     		colorText.setEditable(false);
     		colorText.setFont(new Font("Times New Roman",1,16));
     		
@@ -225,9 +227,13 @@ public class ColorFinder implements ActionListener, MouseListener
             frame.add(jpMaster);
             
             //Set frame constants
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
+            frame.setTitle("Color Identifier");				//title
     		frame.setResizable(false);
             frame.pack();
             frame.setVisible(true);
+            
+            pic_changed = false;
             
     	}
     	frame.repaint();				//draw
@@ -244,6 +250,7 @@ public class ColorFinder implements ActionListener, MouseListener
             System.out.println("got to new picture");
             pic_changed = true;
             frame.dispose();
+            text = "";
             GUI();
         }
     }
