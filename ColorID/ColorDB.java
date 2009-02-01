@@ -167,7 +167,7 @@ class ColorDB {
 		System.out.println("Testing BRIGHTNESS: " + HSB[2]);
 		
 		//If the saturation or brightness are too low and hard to 
-		if(HSB[1] < 0.25 || HSB[2] < 0.25)
+		if(HSB[1] < 0.1 || HSB[2] < 0.1)
 		{
 			return "Brightness or saturation too low.";
 		}
