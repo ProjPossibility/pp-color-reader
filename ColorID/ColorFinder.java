@@ -17,6 +17,7 @@ import java.net.URL;
 
 public class ColorFinder implements ActionListener, MouseListener
 {
+	//Constant Basic Database names
 	private static final String APPLE_DB = "apple.txt";
 	private static final String COLORS_DB = "colors.txt";
 	private static final String SIMPLIFIED_DB = "simplified.txt";
@@ -25,12 +26,12 @@ public class ColorFinder implements ActionListener, MouseListener
 	//GUI STUFF
 	private BufferedImage image;    // the rasterized image
     private JFrame frame;           // on-screen view
-    JPanel jpMenu;
-    JPanel jpTop;
-    JPanel jpBot;
-    JPanel jpMaster;
-    JTextArea colorText;
-    JScrollPane ctDisplay;
+    JPanel jpMenu;					// Panel for the menu
+    JPanel jpTop;					// Panel for the top
+    JPanel jpBot;					// Panel for the bottom
+    JPanel jpMaster;				// Master Panel
+    JTextArea colorText;			// Text area for the bottom 
+    JScrollPane ctDisplay;			// scroll pane in which the text box would be put in
 	
 	//Private member variables.
 	private Picture pic;			//Current picture
@@ -161,6 +162,7 @@ public class ColorFinder implements ActionListener, MouseListener
     	if (frame == null)			//If frame has not been initialized yet
     	{
     		frame = new JFrame();	//Create a new Jframe
+    		
     		//Instantiate Panels
     		jpMenu = new JPanel();
     		jpTop = new JPanel();
@@ -178,53 +180,47 @@ public class ColorFinder implements ActionListener, MouseListener
     		jpBot.add(ctDisplay);
     		
     		//Configure menuBar
-    		JMenuBar menuBar = new JMenuBar();		//Add the top menu
-    		JMenu menuFile = new JMenu("File");			//Create a new menu item
-            menuBar.add(menuFile);						//add that menu item to the menu
+    		JMenuBar menuBar = new JMenuBar();					//Add the top menu
+    		JMenu menuFile = new JMenu("File");					//Create a new menu item
+            menuBar.add(menuFile);								//add that menu item to the menu
             JMenuItem menuItem1 = new JMenuItem(" Load...   ");	//Create sub category to the File tab
-            menuItem1.addActionListener(this);		//Add a listener to the menu for when the load button is clicked
-            menuItem1.setActionCommand("loadpic");		//Set the ActionCommand to load
-            menuFile.add(menuItem1);					//add Load sub category to the menu
+            menuItem1.addActionListener(this);					//Add a listener to the menu for when the load button is clicked
+            menuItem1.setActionCommand("loadpic");				//Set the ActionCommand to load
+            menuFile.add(menuItem1);							//add Load sub category to the menu
             
-            JMenu menuDB = new JMenu("Database");			//Create a new menu item
+            JMenu menuDB = new JMenu("Database");				//Create a new menu item for the database
             menuBar.add(menuDB);
             
-            JMenuItem menuItem2 = new JMenuItem("Apple");
+            JMenuItem menuItem2 = new JMenuItem("Apple");		//Create a new submenu item for the apple db
             menuItem2.addActionListener(this);
-            menuItem2.setActionCommand("apple");
+            menuItem2.setActionCommand("apple");				//Give the event the name apple
             menuDB.add(menuItem2);
             
-            JMenuItem menuItem3 = new JMenuItem("Banana");
+            JMenuItem menuItem3 = new JMenuItem("Banana");		//Create a new submenu item for the banana db
             menuItem3.addActionListener(this);
-            menuItem3.setActionCommand("banana");
+            menuItem3.setActionCommand("banana");				//Give the event the name banana
             menuDB.add(menuItem3);
             
-            JMenuItem menuItem4 = new JMenuItem("Simplified Colors");
+            JMenuItem menuItem4 = new JMenuItem("Simplified Colors");	//Create a new submenu item for the simplified colors
             menuItem4.addActionListener(this);
-            menuItem4.setActionCommand("simplified");
+            menuItem4.setActionCommand("simplified");					//Give the event the name simplified
             menuDB.add(menuItem4);
             
-            JMenuItem menuItem5 = new JMenuItem("Complex Colors");
+            JMenuItem menuItem5 = new JMenuItem("Complex Colors");	//Create a new submenu item for the complex color
             menuItem5.addActionListener(this);
-            menuItem5.setActionCommand("complex");
+            menuItem5.setActionCommand("complex");					//Give the event the name complex
             menuDB.add(menuItem5);
             
-            JMenuItem menuItem6 = new JMenuItem("Custom Database");
+            JMenuItem menuItem6 = new JMenuItem("Custom Database");	//Create a new submenu item for the Custum database
             menuItem6.addActionListener(this);
-            menuItem6.setActionCommand("loadDB");
+            menuItem6.setActionCommand("loadDB");					//Give the event the name loadDB
             menuDB.add(menuItem6);
             
             jpMenu.add(menuBar);				//Add menu bar to the frame
             
-            //Container content = new Container();
-            //content.add(pic.getJLabel());			//display image
-            //content.add(new JLabel(text));				//display text\
-            //jpTop.add(menuBar);
-            
             //Set top panel to the picture and add a mouselistener
             jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            //jpTop.setMaximumSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
@@ -235,16 +231,8 @@ public class ColorFinder implements ActionListener, MouseListener
             //add master panel to the frame
             frame.add(jpMaster);
             
-            
-            //frame.setContentPane(pic.getJLabel());
-                        
-            //frame.setLayeredPane(new JLabel(text));
-            //frame.setGlassPane(textbox);
-            
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
-            frame.setTitle("Color Identifier");				//title
-            
-            //frame.addMouseListener(this);				
+            frame.setTitle("Color Identifier");							//title			
             
             //Set frame constants
             frame.setResizable(false);
@@ -272,7 +260,6 @@ public class ColorFinder implements ActionListener, MouseListener
     		//Set top panel to the picture and add a mouselistener
     		jpTop.add(pic.getJLabel());
             jpTop.addMouseListener(this);
-            //jpTop.setMaximumSize(new Dimension(640, 480));
             
             //Configure and setup master panel
             jpMaster.setLayout(new BoxLayout(jpMaster, BoxLayout.Y_AXIS));
@@ -296,13 +283,23 @@ public class ColorFinder implements ActionListener, MouseListener
     	frame.repaint();				//draw
     }
     
+    //Action event handler that takes an action event that has occurred on the
+    //Menu of the program, does action based on which item was clicked
     public void actionPerformed(ActionEvent e) 
     {
+    	//If the Load item was clicked in the File menu
+    	//We wish to load a new picture so open a file dialog
     	if("loadpic".equals(e.getActionCommand()))
     	{
+    		//Create a new file dialog 
 	    	FileDialog chooser = new FileDialog(frame,
 	                             "Use a .png or .jpg extension", FileDialog.LOAD);
-	        chooser.setVisible(true);
+	        chooser.setVisible(true);	//Make dialog visible
+	        
+	        //If a file was chosen set the pic to the new picture, and set pic changed boolean
+	        //to true. Dispose the previous frame (Probably could be optimized so this is unneccesary
+	        //but we are inexperienced with Java GUI so we went for simplicity), erase the text,
+	        //then call GUI to create a new frame.
 	        if (chooser.getFile() != null) 
 	        {
 	            pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
@@ -313,22 +310,33 @@ public class ColorFinder implements ActionListener, MouseListener
 	            GUI();
 	        }
     	}
+    	//If the apple menu was pressed change database to the
+    	//apple database
     	else if("apple".equals(e.getActionCommand()))
     	{
     		changeDB(APPLE_DB);
     	}
+    	//If the banana menu was pressed change database to the
+    	//banana database
     	else if("banana".equals(e.getActionCommand()))
     	{
     		changeDB(BANANA_DB);
     	}
+    	//If the simplified menu was pressed change database to the
+    	//simplified database
     	else if("simplified".equals(e.getActionCommand()))
     	{
     		changeDB(SIMPLIFIED_DB);
     	}
+    	//If the complex menu was pressed change database to the
+    	//colors database
     	else if("complex".equals(e.getActionCommand()))
     	{
     		changeDB(COLORS_DB);
     	}
+    	//If the custum menu was pressed open a file dialog
+    	//so the user can choose their desired database in a .txt format
+    	//in the correct format, if no file is chosen do nothing
     	else if("loadDB".equals(e.getActionCommand()))
     	{
     		FileDialog DBchooser = new FileDialog(frame,
