@@ -142,6 +142,14 @@ public class findColor implements ActionListener, MouseListener
     	if (frame == null)			//If frame has not been initialized yet
     	{
     		frame = new JFrame();	//Create a new Jframe
+    		JPanel jpTop;
+    		JPanel jpBot;
+    		JPanel jpMaster;
+    		
+    		JTextArea colorText = new JTextArea();
+    		JScrollPane ctDisplay = new JScrollPane(colorText);
+    		colorText.setText(text);
+    		jpBot.add(ctDisplay);
     		
     		//Set menu bar
     		JMenuBar menuBar = new JMenuBar();		//Add the top menu
@@ -157,12 +165,17 @@ public class findColor implements ActionListener, MouseListener
             //textbox.setText(text);
             content.add(pic.getJLabel());			//display image
             //content.add(new JLabel(text));				//display text
-            frame.setContentPane(content);
+            jpTop.add(content);
+            jpTop.addMouseListener(this);
+            jpMaster.add(jpTop);
+            jpMaster.add(jpBot);
+            frame.add(jpMaster);
+            
             //frame.setLayeredPane(new JLabel(text));
-            frame.setGlassPane(textbox);
+            //frame.setGlassPane(textbox);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	//default close operation
             frame.setTitle("Color Identifier");				//title
-            frame.addMouseListener(this);				
+            //frame.addMouseListener(this);				
             
             frame.setResizable(false);
             frame.pack();
