@@ -7,7 +7,7 @@ Yellow_Orange	0.106	  1	1
 Yellow_Orange	0.114	  1	1
 Yellow		0.128	  1	1
 Yellow		0.156	  1	1
-Yellow		0.175	  1	1
+Olive		0.175	  1	1
 Yellow_Green	0.205	  1	1
 Yellow_Green	0.233	  1	1
 Green		0.241	  1	1
@@ -26,7 +26,7 @@ Blue	        0.608	  1	1
 Blue            0.667     1     1
 Dark_Blue       0.667     1 0.545
 Blue_Purple	0.727	  1	1
-Electric_Indigo 0.756	  1	1
+Blue_Purple     0.756	  1	1
 Indigo          0.763     1 0.510
 Purple          0.833     1     1
 Magenta         0.842     1     1
