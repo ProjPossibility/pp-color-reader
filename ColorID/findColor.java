@@ -143,6 +143,8 @@ public class findColor implements ActionListener, MouseListener
     	JPanel jpTop = new JPanel();
     	JPanel jpBot = new JPanel();
     	JPanel jpMaster = new JPanel();
+    	JTextArea colorText = new JTextArea();
+    	JScrollPane ctDisplay = new JScrollPane();
     		
     	if (frame == null)			//If frame has not been initialized yet
     	{
@@ -152,10 +154,10 @@ public class findColor implements ActionListener, MouseListener
     		jpBot = new JPanel();
     		jpMaster = new JPanel();
     		
-    		JTextArea colorText = new JTextArea();
-    		JScrollPane ctDisplay = new JScrollPane(colorText);
+    		colorText = new JTextArea();
+    		ctDisplay = new JScrollPane(colorText);
     		colorText.setText(text);
-    		text.setEditable(false);
+    		colorText.setEditable(false);
     		jpBot.add(ctDisplay);
     		
     		//Set menu bar
@@ -199,7 +201,7 @@ public class findColor implements ActionListener, MouseListener
     		colorText = new JTextArea();
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText("");
-    		text.setEditable(false);
+    		colorText.setEditable(false);
     		jpBot.add(ctDisplay);
     		
     		jpTop.add(pic.getJLabel());
