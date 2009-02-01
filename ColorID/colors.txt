@@ -1,4 +1,3 @@
-Red                 1     1     1
 Scarlet		0.022	  1	1
 Orange_Red	0.047	  1	1
 Vermilion	0.050	  1	1
