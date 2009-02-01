@@ -102,7 +102,7 @@ class ColorDB {
 			
 			// Make sure that the array of names is sorted
 			// do this using the basic java array sort
-			Arrays.sort(nameDB, 0, size, ColorNameCompare );
+			Arrays.sort(nameDB, 0, size, new ColorNameCompare() );
 			
     	}
     	catch (IOException e) 
