@@ -73,7 +73,7 @@ public class ColorName
     // non-whitespace character
     private int	getNextNonWhitespace(String s, int i)
     {
-    	while( s.charAt(i) == ' ' && i < s.length() )
+    	while( (s.charAt(i) == ' ' || s.charAt(i) == '\t') && i < s.length() )
     	{
     		// Continue searching until not a whitespace char
     		i++;
@@ -87,7 +87,7 @@ public class ColorName
     // is a space character
     private int getNextWhitespace(String s, int i)
     {
-    	while( i < s.length() && s.charAt(i) != ' ')
+    	while( i < s.length() && ! (s.charAt(i) == ' ' || s.charAt(i) == '\t'))
     	{
     		// Continue searching until not a whitespace char
     		i++;
