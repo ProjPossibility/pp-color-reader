@@ -25,7 +25,7 @@ Dodger_Blue	0.591	  1	1
 Navy_Blue	0.608	  1	1
 Blue            0.667     1     1
 Dark_Blue       0.667     1 0.545
-Han Purple	0.727	  1	1
+Han_Purple	0.727	  1	1
 Electric_Indigo 0.756	  1	1
 Indigo          0.763     1 0.510
 Purple          0.833     1     1
