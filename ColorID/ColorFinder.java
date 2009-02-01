@@ -66,9 +66,9 @@ public class ColorFinder implements ActionListener, MouseListener
     	/*Now that we have found the color we want to output alter
     	 *the GUI to display the color to the user*/
     	 
-    	 colorText.setText(text);
-    	//frame.dispose();
-    	//pic_changed = true;
+    	//colorText.setText(text);
+    	frame.dispose();
+    	pic_changed = true;
     	GUI();
     	
     	return;
