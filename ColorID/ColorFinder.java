@@ -44,6 +44,12 @@ public class ColorFinder implements ActionListener, MouseListener
     	pic = new Picture("banana_ripeningchart.jpg"); //Default picture
     }
     
+    /*Change the database.			
+     *it take a string and swith the data base     */
+     public void change db(String dbnew){
+     	db = new ColorDB(dbnew);
+     }
+     
     /* Uses the private members pic and the mouseclick coordinates *
      * Based on results of functions called alters the GUI to      *
      * display the color at the coordinates						   */
