@@ -251,6 +251,7 @@ public class findColor implements ActionListener, MouseListener
             pic = new Picture(chooser.getDirectory() + File.separator + chooser.getFile());
             System.out.println("got to new picture");
             pic_changed = true;
+            frame.dispose();
             GUI();
         }
     }
