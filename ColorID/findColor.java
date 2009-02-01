@@ -222,6 +222,9 @@ public class findColor implements ActionListener, MouseListener
     		ctDisplay = new JScrollPane(colorText);
     		colorText.setText("");
     		colorText.setEditable(false);
+    		colorText.setFont(new Font("Times New Roman",0,16));
+    		
+    		//Add text to the bottom panel
     		jpBot.add(ctDisplay);
     		
     		//Set top panel to the picture and add a mouselistener
