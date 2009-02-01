@@ -78,9 +78,29 @@ public class findColor implements ActionListener, MouseListener
     	System.out.println ("averagePixel is called ");
     	/*Set the lower and upper limint for reference
     	 */
+<<<<<<< .mine
+    	int lower = y - 1;
+    	if (lower < 0) lower = 0;
+    	int upper = y + 1;
+    	if (upper == pic.height()-1) upper = pic.height()-1;
+    	int left = x - 1;
+    	if (left < 0) left = 0;
+    	int right = x + 1;
+    	if (right == pic.width()-1) right = pic.width()-1;
+=======
     	int range = 4;
+>>>>>>> .r117
     	
+<<<<<<< .mine
+    	System.out.println("x: " + x + " y: " + y);
+    	System.out.println("right: " + right);
+    	System.out.println("left: " + left);
+    	System.out.println("up: " + upper);
+    	System.out.println("low: " + lower);
     	
+=======
+    	
+>>>>>>> .r117
     	/*Create local RGB variables to store the	*
     	 *values, using floats for future division	*/
     	float green = 0, blue = 0, red = 0;
@@ -93,6 +113,14 @@ public class findColor implements ActionListener, MouseListener
     	{
     		for(int xCounter = x - range; xCounter <= x + range; xCounter++)
     		{
+<<<<<<< .mine
+    			green += (float)(pic.get(x, y).getGreen());
+    			System.out.println("ycounter: " + yCounter + " xcounter: " + xCounter + " green : " + green);
+    			blue += (float)(pic.get(x, y).getBlue());
+    			System.out.println(" blue : " + blue);
+    			red += (float)(pic.get(x, y).getRed());
+    			System.out.println(" red : " + red);
+=======
 
     			// Test to make sure that we are still in bounds
     			if( yCounter > 0 && yCounter < pic.height() && xCounter > 0 && xCounter < pic.width() )
@@ -102,6 +130,7 @@ public class findColor implements ActionListener, MouseListener
     				red += (float)(pic.get(x, y).getRed());
     				total ++;
     			}
+>>>>>>> .r117
     		}
     	}
     	
