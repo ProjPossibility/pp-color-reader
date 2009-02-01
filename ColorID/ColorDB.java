@@ -175,6 +175,7 @@ class ColorDB {
 		int index = searchHue(HSB);
 		
 		System.out.println(index);
+		System.out.println(HSB[1]);
 		
 		if(nameDB[index].sat > HSB[1])
 			name = compareSatL(index, HSB[1]);	
@@ -237,7 +238,7 @@ class ColorDB {
 			//Choose the middle of the array to check which side to check for the cloest value
 			mid = (max + min)/2;
 			
-			//Special case 
+			//Special case, if the middle is
 			if(mid == 0){
 				lower = 0;
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
@@ -249,7 +250,7 @@ class ColorDB {
 				upper = nameDB[mid].hue+(nameDB[mid+1].hue-nameDB[mid].hue)/2;
 			}
 			
-			if(lower <= HSB[0] && HSB[0] <= upper)
+			if(lower < HSB[0] && HSB[0] < upper)
 			{
 				index = mid;
 				break;
@@ -283,7 +284,7 @@ class ColorDB {
 	
 	private String compareSatR(int index, float s)
 	{
-		while(index != size-1 && nameDB[index].hue == nameDB[index-1].hue)
+		while(index != size-1 && nameDB[index].hue == nameDB[index+1].hue)
 		{
 			if(Math.abs(s - nameDB[index].sat) < Math.abs(s - nameDB[index+1].sat)){
 				return nameDB[index].name;
