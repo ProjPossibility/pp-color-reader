@@ -8,6 +8,7 @@ Orange		0.114	  1	1
 Golden_Poppy	0.128	  1	1
 Golden_Yellow	0.156	  1	1
 Yellow		0.175	  1	1
+Olive           0.177     1 0.502
 Electric_Lime   0.205	  1	1
 Spring_Bud	0.233	  1	1
 Chartreuse	0.241	  1	1
