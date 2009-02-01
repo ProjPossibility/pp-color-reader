@@ -139,13 +139,18 @@ public class findColor implements ActionListener, MouseListener
      */
     public void GUI()
     {
+    	JPanel jpMenu = new JPanel();
+    	JPanel jpTop = new JPanel();
+    	JPanel jpBot = new JPanel();
+    	JPanel jpMaster = new JPanel();
+    		
     	if (frame == null)			//If frame has not been initialized yet
     	{
     		frame = new JFrame();	//Create a new Jframe
-    		JPanel jpMenu = new JPanel();
-    		JPanel jpTop = new JPanel();
-    		JPanel jpBot = new JPanel();
-    		JPanel jpMaster = new JPanel();
+    		jpMenu = new JPanel();
+    		jpTop = new JPanel();
+    		jpBot = new JPanel();
+    		jpMaster = new JPanel();
     		
     		JTextArea colorText = new JTextArea();
     		JScrollPane ctDisplay = new JScrollPane(colorText);
