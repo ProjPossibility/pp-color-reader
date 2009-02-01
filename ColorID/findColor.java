@@ -64,6 +64,7 @@ public class findColor implements ActionListener, MouseListener
     	/*Convert the color found into the appropriate english name*/
     	color_name = db.ColorToName(pic_color);
     	
+    	setText(color_name);
     	/*Now that we have found the color we want to output alter
     	 *the GUI to display the color to the user*/
     	
