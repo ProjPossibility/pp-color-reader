@@ -19,7 +19,7 @@
 			<applet_ref/>
 			<debugger_ref/>
 			<param/>
-			<run>Runner</run>
+			<run/>
 			<verify>true</verify>
 		</runtime>
 	</runtimes>
@@ -27,13 +27,22 @@
 	<files>
 		<include>
 			<fileitem>
+				<path>AveragePixels.java</path>
+			</fileitem>
+			<fileitem>
 				<path>ColorDB.java</path>
+			</fileitem>
+			<fileitem>
+				<path>ColorGUI.java</path>
 			</fileitem>
 			<fileitem>
 				<path>ColorName.java</path>
 			</fileitem>
 			<fileitem>
-				<path>findColor.java</path>
+				<path>FindColor.java</path>
+			</fileitem>
+			<fileitem>
+				<path>GUI.java</path>
 			</fileitem>
 			<fileitem>
 				<path>Picture.java</path>
@@ -42,6 +51,21 @@
 				<path>Runner.java</path>
 			</fileitem>
 		</include>
+		<exclude>
+			<fileitem>
+				<path>Picture.class</path>
+			</fileitem>
+			<fileitem>
+				<path>Runner.class</path>
+			</fileitem>
+		</exclude>
 	</files>
-	<tasks/>
+	<tasks>
+		<todotaskitem>
+			<description>TODO: Should change to handle no picture</description>
+			<filepath>FindColor.java</filepath>
+			<line>46</line>
+			<timestamp>1233461780</timestamp>
+		</todotaskitem>
+	</tasks>
 </project>
