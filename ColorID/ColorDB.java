@@ -232,7 +232,27 @@ class ColorDB {
 		while (true)
 		{
 			mid = (max + min)/2;
-			if (nameDB[mid].hue <= HSB[0] && HSB[0] <= nameDB[mid+1].hue)
+			if(mid == 0){
+				lower = 0;
+				upper = nameDB[mid].hue+(nameDB[mid+1]+nameDB[mid])/2;
+			}else if(mid == size-1){
+				lower = nameDB[mid].hue-(nameDB[mid-1]+nameDB[mid])/2;
+				upper = 1;
+			}else{
+				lower = nameDB[mid].hue-(nameDB[mid-1]+nameDB[mid])/2;
+				upper = nameDB[mid].hue+(nameDB[mid+1]+nameDB[mid])/2;
+			}
+			
+			if(lower <= HSB[0] && HSB[0] <= upper)
+			{
+				index = mid;
+				break;
+			}else if(HSB[0] < nameDB[mid].hue){
+				max = mid;
+			}else if(HSB[0] > nameDB[mid].hue){
+				min = mid;
+			}
+/*			if (nameDB[mid].hue <= HSB[0] && HSB[0] <= nameDB[mid+1].hue)
 			{
 				if (HSB[0]-nameDB[mid].hue <= nameDB[mid+1].hue-HSB[0])
 				{
@@ -253,7 +273,7 @@ class ColorDB {
 			{
 				min = mid;
 				continue;
-			}
+			}*/
 		}
 		
 		if(nameDB[index].sat > HSB[1]){
