@@ -204,12 +204,12 @@ class ColorNameCompare implements Comparator
 	 *
 	 * ********************************************************************/
    
-    public boolean equal( ColorName o1, ColorName o2 )
-    {
-    	if( o1.hue == o2.hue )
-    		return true;
-    		
-    	return false;    	
-    }
+//    public boolean equal( ColorName o1, ColorName o2 )
+//    {
+//    	if( o1.hue == o2.hue )
+//    		return true;
+//    		
+//    	return false;    	
+//    }
 
 }
