@@ -2,11 +2,11 @@
 
 <project>
 	<settings>
-		<label>CS Competition</label>
+		<label>ColorReader</label>
 		<root_path>\</root_path>
 		<output_path>\</output_path>
 		<source_path>\</source_path>
-		<jdkprofile_ref>JDK version 1.6.0_11</jdkprofile_ref>
+		<jdkprofile_ref>JDK version 1.6.0_02</jdkprofile_ref>
 		<compiler_ref>&lt;Default&gt;</compiler_ref>
 		<ant_ref/>
 	</settings>
@@ -26,8 +26,7 @@
 		</runtime>
 	</runtimes>
 	<libraries>
-		<library_ref>freetts</library_ref>
-		<library_ref>TTS</library_ref>
+		<library_ref>Voice</library_ref>
 	</libraries>
 	<files>
 		<include>
@@ -59,5 +58,12 @@
 			</fileitem>
 		</exclude>
 	</files>
-	<tasks/>
+	<tasks>
+		<todotaskitem>
+			<description>TODO: Should change to handle no picture</description>
+			<filepath>FindColor.java</filepath>
+			<line>46</line>
+			<timestamp>1233461780</timestamp>
+		</todotaskitem>
+	</tasks>
 </project>
