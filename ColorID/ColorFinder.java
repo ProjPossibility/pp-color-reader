@@ -68,11 +68,16 @@ public class ColorFinder implements ActionListener, MouseListener
     	
     }
     
-    /*************************************************************
-     *ChangeDB                                                   *			
-     *it take a string and switch the data base by creating a new*
-     *database and setting the db member to that newly created DB*
-     *************************************************************/
+    /**************************************************************
+     *ChangeDB                                                    *
+     *Parameters-                                                 *
+     *    String dbnew - the string that is the path to the       *
+     *					 database that we are trying to change to *
+     *Returns-                                                    *
+     *	  does not return anything, but alters the member database*			
+     *it take a string and switch the data base by creating a new *
+     *database and setting the db member to that newly created DB *
+     **************************************************************/
      public void changeDB(String dbnew)
      {
      	System.out.println("Changing the Database");
@@ -81,6 +86,12 @@ public class ColorFinder implements ActionListener, MouseListener
      
     /***************************************************************
      * getColor													   *
+     * Parameters-												   *
+     *		No parameters, uses member variables pic_color and     *
+     *		color_name to find the string name of the color        *
+     * Returns-													   *
+     *		No return value, changes the color name and outputs the*
+     *		text to speech										   *
      * Uses the private members pic and the mouseclick coordinates *
      * Based on results of functions called alters the GUI to      *
      * display the color at the coordinates						   *
@@ -115,12 +126,18 @@ public class ColorFinder implements ActionListener, MouseListener
     
     /*************************************************************
      *averagePixel												 *
+     *Parameters-												 *
+     *		int x,y - the x and y coordinates of the center pixel*
+     * 				  that we want the average color around      *
+     *		Picture pic - the picture we are using				 *
+     *Returns-													 *
+     *		Returns a color object that contains the averaged    *
+     *		data												 *
      *Take (x,y) location in pic and return the average color 	 *
      *By refering the pixels around it						     *
      *************************************************************/
     private Color averagePixel(Picture pic, int x, int y)
     {
-    	System.out.println ("averagePixel is called ");
     	/*Set the lower and upper limint for reference
     	 */
 
@@ -178,6 +195,7 @@ public class ColorFinder implements ActionListener, MouseListener
     
     /**************************************************************************
      * GUI                                                                    *
+     * No Parameters or Returns												  *
      * This is the function that handles all the gui interface, it creates the*
      * panels, menus, and pictures.                                           *
      **************************************************************************/
@@ -309,6 +327,10 @@ public class ColorFinder implements ActionListener, MouseListener
     
     /**********************************************************************
     *actionPerformed													  *
+    *Parameters-														  *
+    *		ActionEvent e - the action that caused the event			  *
+    *Returns-															  *
+    *		No return													  *
     *Action event handler that takes an action event that has occurred on *
     *the Menu of the program, does action based on which item was clicked *
     ***********************************************************************/
@@ -379,6 +401,10 @@ public class ColorFinder implements ActionListener, MouseListener
 
 	/**************************************************************
 	 *mouseClicked                                                *
+	 *Parameters-												  *
+     *		ActionEvent e - the action that caused the event	  *
+     *Returns-													  *
+     *		No return											  *
 	 *Mouse action event handler, for when the mouse is clicked.  *
 	 *If the mouse is clicked set the mouse_x and mouse_y member  *
 	 *variables to the location clicked. The minus five is used to*
